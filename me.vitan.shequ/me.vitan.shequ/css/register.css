@@ -1,0 +1,215 @@
+﻿body {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    background-repeat: no-repeat;
+    background-size: auto 400%;
+}
+
+.input {
+    width:190px;
+    height:30px;
+    border-radius:7px;
+    border:1px solid #ccc;
+    text-align:center;
+}
+
+.container {
+    width: 100%;
+}
+
+.main{
+    margin-left:160px;
+    margin-top:20px;
+}
+
+.register-box {
+    position: relative;
+    height: 550px;
+    width: 800px;
+    top: 50px;
+    margin: 0 auto;
+    z-index: 99999;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    background: #fafafa;
+}
+
+.title-box {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    margin-left: 250px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #ff5000;
+    line-height: 50px;
+}
+
+.username-box {
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 90px;
+    margin-left: 80px;
+    font-weight: 700;
+}
+
+.username-input {
+    display: inline-block;
+    margin-left: 45px;
+    /*background: green;*/
+}
+
+#username {
+    height: 35px;
+    width: 290px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.userPassword-box {
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 170px;
+    margin-left: 80px;
+    font-weight: 700;
+}
+
+.xiao-userPassword-input {
+    display: inline-block;
+    margin-left: 61px;
+}
+
+#userPassword {
+    height: 35px;
+    width: 290px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.userRePassword-box {
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 250px;
+    margin-left: 80px;
+    font-weight: 700;
+}
+
+.userRePassword-input {
+    display: inline-block;
+    margin-left: 28px;
+}
+
+#userRePassword {
+    height: 35px;
+    width: 290px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.userPhone-box {
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 330px;
+    margin-left: 80px;
+    font-weight: 700;
+}
+
+.userPhone-input {
+    display: inline-block;
+    margin-left: 28px;
+}
+
+.userEmail-box {
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 410px;
+    margin-left: 80px;
+    font-weight: 700;
+}
+
+.userEmail-input {
+    display: inline-block;
+    margin-left: 28px;
+}
+
+#userEmail {
+    height: 35px;
+    width: 290px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.userGender-box {
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 490px;
+    margin-left: 82px;
+    font-weight: 700;
+}
+
+
+.require {
+    color: red;
+}
+
+.submit-box {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 477px;
+    margin-left: 80px;
+    border-radius: 5px;
+}
+.btn {
+    width: 120px;
+    background: #34495e;
+    border: 1px solid #1B1464;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size:1.2em;
+}
+
+    .btn:hover {
+        background: #1abc9c;
+        color: #2c3e50;
+    }
+
+.goLogin-box {
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    margin-top: 477px;
+    margin-left: 232px;
+}
+
+.formtips {
+    width: 200px;
+    margin: 2px;
+    padding: 2px;
+}
+
+.onError {
+    background: #FFE0E9 url(/img/reg3.gif) no-repeat 0 center;
+    padding-left: 25px;
+}
+
+.onSuccess {
+    background: #E9FBEB url(/img/reg4.gif) no-repeat 0 center;
+    padding-left: 25px;
+}
