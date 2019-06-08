@@ -46,7 +46,7 @@
                 <div id="sidebar" class="nav-collapse ">
                     <ul class="sidebar-menu" id="nav-accordion">
                         <p class="centered">
-                            <a href="profile.html">
+                            <a href="center.aspx">
                                 <img src="img/ivitan.png" class="img-circle" width="80" /></a>
                         </p>
                         <h5 class="centered">管理员</h5>

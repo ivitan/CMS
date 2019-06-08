@@ -52,12 +52,12 @@
                     <div class="content-panel">
                         <h4><i class="fa fa-angle-right">
                             <asp:Label ID="Label1" runat="server" Text=""></asp:Label></i></h4>
-                        <table class="tables" style="margin-left: 30%; padding: 10px;">
+                        <table class="tabls table-condensed table-hover" style="margin-left: 30%; padding: 10px;">
                             <tr>
                                 <td>
                                     <asp:FileUpload ID="FileUpload1" runat="server" Width="243px" onchange="checkSize(this)" /></td>
                                 <td>
-                                    <asp:Button ID="Button2" runat="server" Text="上传" Style="height: 27px" CssClass="btn" OnClick="Button2_Click" /></td>
+                                    <asp:Button ID="Button2" runat="server" Text="上传" Style="height: 27px" CssClass="btn btn-success" OnClick="Button2_Click" /></td>
                                 <td>
                                     <asp:Label ID="Label2" runat="server"></asp:Label></td>
                             </tr>
@@ -109,10 +109,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Button ID="Button1" runat="server" Text="修改" CssClass="btn" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" Text="修改" CssClass="btn btn-primary" OnClick="Button1_Click" />
                                 </td>
                                 <td>
-                                    <asp:Button ID="Button3" runat="server" Text="删除" CssClass="btn" OnClick="Button3_Click" />
+                                    <asp:Button ID="Button3" runat="server" Text="删除" CssClass="btn btn-success" OnClick="Button3_Click" />
                                 </td>
                             </tr>
                         </table>

@@ -21,7 +21,8 @@
             background: #bdc3c7;
             border-radius: 7px;
             border: 1px solid #3df44c;
-            margin: 8px 8px
+            margin: 8px 8px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
         }
 
             .div_item:hover {
@@ -74,8 +75,8 @@
                                             <p>联系方式:<%#Eval("联系方式")%></p>
                                             <p>备注: <%#Eval("备注")%></p>
                                               <br />
-                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" ForeColor="Red" CssClass="btn"></asp:Button>
-                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn" />
+                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" CssClass="btn btn-primary"></asp:Button>
+                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn btn-primary" />
                                         </div>
                                     </div>
                                 </ItemTemplate>
@@ -95,8 +96,8 @@
                                             <p>联系方式:<asp:TextBox ID="TextBox10" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p
                                             <p>备注:<asp:TextBox ID="TextBox11" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
                                             <br />
-                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
-                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-primary" ></asp:Button>
+                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
                                         </div>
                                     </div>
                                 </EditItemTemplate>
@@ -125,10 +126,10 @@
                     <div class="content-panel">
                         <h4><i class="fa fa-angle-right"></i>添加信息</h4>
                         <hr />
-                        <table class="table" style="margin-left: 20%">
+                        <table class="tabls table-inbox table-hover" style="margin-left: 30%;">
                             <tbody>
                                 <tr>
-                                    <td>姓名：</td>
+                                    <td >姓名：</td>
                                     <td>
                                         <asp:TextBox ID="xm" runat="server"></asp:TextBox>
                                     </td>
@@ -196,7 +197,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Button ID="Button3" runat="server" Text="添加" CssClass="btn" OnClick="Button3_Click"></asp:Button>
+                                        <asp:Button ID="Button3" runat="server" Text="添加" CssClass="btn btn-primary" OnClick="Button3_Click"></asp:Button>
                                     </td>
                                 </tr>
                             </tbody>

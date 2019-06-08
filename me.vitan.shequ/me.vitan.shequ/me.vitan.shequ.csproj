@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="canji.aspx" />
+    <Content Include="center.aspx" />
     <Content Include="dibao.aspx" />
     <Content Include="healthUP.aspx" />
     <Content Include="img\ivitan.png" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="canji.aspx.designer.cs">
       <DependentUpon>canji.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="center.aspx.cs">
+      <DependentUpon>center.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="center.aspx.designer.cs">
+      <DependentUpon>center.aspx</DependentUpon>
     </Compile>
     <Compile Include="dibao.aspx.cs">
       <DependentUpon>dibao.aspx</DependentUpon>

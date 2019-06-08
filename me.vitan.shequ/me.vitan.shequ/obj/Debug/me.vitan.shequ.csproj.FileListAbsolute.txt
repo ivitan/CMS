@@ -4,3 +4,4 @@ D:\WorkPace\Final\me.vitan.shequ\me.vitan.shequ\bin\me.vitan.shequ.pdb
 D:\WorkPace\Final\me.vitan.shequ\me.vitan.shequ\obj\Debug\me.vitan.shequ.csproj.CoreCompileInputs.cache
 D:\WorkPace\Final\me.vitan.shequ\me.vitan.shequ\obj\Debug\me.vitan.shequ.dll
 D:\WorkPace\Final\me.vitan.shequ\me.vitan.shequ\obj\Debug\me.vitan.shequ.pdb
+D:\WorkPace\Final\me.vitan.shequ\me.vitan.shequ\obj\Debug\me.vitan.shequ.csprojAssemblyReference.cache

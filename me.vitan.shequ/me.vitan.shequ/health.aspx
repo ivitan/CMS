@@ -15,7 +15,7 @@
                         <h4><i class="fa fa-angle-right"></i>结果</h4>
                         <hr />
                         <div style="margin-left: 40%; margin-bottom: 30px">
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="input" Widtd="120px;"></asp:TextBox><asp:Button ID="Button2" runat="server" Text="查询" CssClass="btn" />
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="input" Widtd="120px;"></asp:TextBox><asp:Button ID="Button2" runat="server" Text="查询" CssClass="btn btn-primary" />
                         </div>
                         <asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemholder" DataSourceID="SqlDataSource1">
                             <LayoutTemplate>
@@ -25,6 +25,7 @@
                     <div class="item" id="a1" runat="server">
                         <img alt="" src='<%#Eval("img","images/{0}") %>' />
                         <div class="itemfl">
+                            <br />
                             <h3><%#Eval("name") %></h3>
                             <p>年龄：<%#Eval("age")%></p>
                             <p>性别：<%#Eval("sex")%></p>
@@ -52,7 +53,7 @@
                     <div class="content-panel">
                         <h4><i class="fa fa-angle-right"></i>添加信息</h4>
                         <hr />
-                        <table class="table" style="margin-left: 20%">
+                        <table class="tabls table-condensed table-hover" style="margin-left: 35%">
                             <tbody>
                                 <tr>
                                     <td>姓名：</td>
@@ -87,7 +88,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Button ID="Button3" runat="server" Text="添加" OnClick="Button3_Click" CssClass="btn"></asp:Button>
+                                        <asp:Button ID="Button3" runat="server" Text="添加" OnClick="Button3_Click" CssClass="btn btn-primary"></asp:Button>
                                     </td>
                                 </tr>
                             </tbody>

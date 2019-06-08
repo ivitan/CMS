@@ -75,7 +75,6 @@ namespace me.vitan.shequ
                     string sql = "insert into photos(pname) values ('" + pname + "')";
                     if (obj.Insert(sql, null))
                     {
-                        obj.Insert(sql, null);
                         this.Label2.Text = "照片上传成功";
                     }
                 }

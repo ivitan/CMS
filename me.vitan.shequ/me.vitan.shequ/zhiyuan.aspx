@@ -19,9 +19,9 @@
             padding: 5px;
             height: 400px;
             width: 280px;
-            background: #bdc3c7;
+            background: #f3f4f5;
             border-radius: 7px;
-            border: 1px solid #3df44c;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
             margin: 8px 8px
         }
 
@@ -61,6 +61,7 @@
                                 <ItemTemplate>
                                     <div class="div_item" runat="server">
                                         <div class="fl">
+                                            <br />
                                             <h2><%#Eval("姓名") %></h2>
                                             <p>性别：<%#Eval("性别")%></p>
                                             <p>出生年月：<%#Eval("出生年月")%></p>
@@ -72,8 +73,8 @@
                                             <p>联系电话: <%#Eval("联系电话")%></p>
                                             <p>邮箱: <%#Eval("邮箱")%></p>
                                             <br />
-                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" ForeColor="Red" CssClass="btn"></asp:Button>
-                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn" />
+                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" CssClass="btn btn-success"></asp:Button>
+                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn btn-primary" />
                                         </div>
                                     </div>
                                 </ItemTemplate>
@@ -92,8 +93,8 @@
                                             <p>联系电话:<asp:TextBox ID="TextBox9" Text='<%#Eval("联系电话")%>' runat="server"></asp:TextBox></p>
                                             <p>邮箱:<asp:TextBox ID="TextBox10" Text='<%#Eval("邮箱")%>' runat="server"></asp:TextBox></p>
                                             <br />
-                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
-                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
+                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
+                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
                                         </div>
                                     </div>
                                 </EditItemTemplate>
@@ -106,7 +107,7 @@
                                     <asp:LinkButton ID="lnkbtnNext" runat="server" CommandName="next" Font-Underline="False" ForeColor="Black" Width="61px">下一页</asp:LinkButton>
                                     <asp:LinkButton ID="lnkbtnLast" runat="server" Font-Overline="False" CommandName="last" Font-Underline="False" ForeColor="Black" Width="38px">尾页</asp:LinkButton>
                                     跳转至：<asp:TextBox ID="txtPage" runat="server" Width="25px" Height="21px"></asp:TextBox>
-                                    <asp:Button ID="Button1" runat="server" CommandName="search" Text="GO" Height="30px" CssClass="btn" />
+                                    <asp:Button ID="Button1" runat="server" CommandName="search" Text="GO" Height="30px" CssClass="btn btn-success" />
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPage" ErrorMessage="请输入数字（除了数值0）" ValidationExpression="[1-9]+(\d)*"></asp:RegularExpressionValidator>
                                     <br>
                                 </FooterTemplate>
@@ -122,7 +123,7 @@
                     <div class="content-panel">
                         <h4><i class="fa fa-angle-right"></i>添加信息</h4>
                         <hr />
-                        <table class="table" style="margin-left: 20%">
+                        <table class="tabls table-condensed table-hover" style="margin-left: 30%">
                             <tbody>
                                 <tr>
                                     <td>姓名：</td>
@@ -187,7 +188,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Button ID="Button3" runat="server" Text="添加" CssClass="btn" OnClick="Button3_Click"></asp:Button>
+                                        <asp:Button ID="Button3" runat="server" Text="添加" CssClass="btn btn-success" OnClick="Button3_Click"></asp:Button>
                                     </td>
                                 </tr>
                             </tbody>
