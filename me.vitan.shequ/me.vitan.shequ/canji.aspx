@@ -18,9 +18,8 @@
             padding: 5px;
             height: 420px;
             width: 280px;
-            background: #bdc3c7;
+            background:  #f3f4f5;
             border-radius: 7px;
-            border: 1px solid #3df44c;
             margin: 8px 8px;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
         }
@@ -75,7 +74,7 @@
                                             <p>联系方式:<%#Eval("联系方式")%></p>
                                             <p>备注: <%#Eval("备注")%></p>
                                               <br />
-                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" CssClass="btn btn-primary"></asp:Button>
+                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" CssClass="btn btn-success"></asp:Button>
                                             <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn btn-primary" />
                                         </div>
                                     </div>
@@ -96,7 +95,7 @@
                                             <p>联系方式:<asp:TextBox ID="TextBox10" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p
                                             <p>备注:<asp:TextBox ID="TextBox11" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
                                             <br />
-                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-primary" ></asp:Button>
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
                                         </div>
                                     </div>
@@ -110,7 +109,7 @@
                                     <asp:LinkButton ID="lnkbtnNext" runat="server" CommandName="next" Font-Underline="False" ForeColor="Black" Width="61px">下一页</asp:LinkButton>
                                     <asp:LinkButton ID="lnkbtnLast" runat="server" Font-Overline="False" CommandName="last" Font-Underline="False" ForeColor="Black" Width="38px">尾页</asp:LinkButton>
                                     跳转至：<asp:TextBox ID="txtPage" runat="server" Width="25px" Height="21px"></asp:TextBox>
-                                    <asp:Button ID="Button1" runat="server" CommandName="search" Text="GO" Height="30px" CssClass="btn" />
+                                    <asp:Button ID="Button1" runat="server" CommandName="search" Text="GO" Height="30px" CssClass="btn btn-success" />
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPage" ErrorMessage="请输入数字（除了数值0）" ValidationExpression="[1-9]+(\d)*"></asp:RegularExpressionValidator>
                                     <br>
                                 </FooterTemplate>
@@ -126,7 +125,7 @@
                     <div class="content-panel">
                         <h4><i class="fa fa-angle-right"></i>添加信息</h4>
                         <hr />
-                        <table class="tabls table-inbox table-hover" style="margin-left: 30%;">
+                        <table class="tablss table-condensed table-hover" style="margin-left: 30%;">
                             <tbody>
                                 <tr>
                                     <td >姓名：</td>

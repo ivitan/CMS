@@ -108,8 +108,8 @@
                                             <p>健康状况:<asp:TextBox ID="TextBox10" runat="server" Text='<%#Eval("健康状况")%>'></asp:TextBox></p>
                                             <p>联系电话:<asp:TextBox ID="TextBox11" runat="server" Text='<%#Eval("联系电话")%>'></asp:TextBox></p>
                                             <p>邮箱:<asp:TextBox ID="TextBox12" runat="server" Text='<%#Eval("邮箱")%>'></asp:TextBox></p>
-                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" /></asp:Button>
-                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" /></asp:Button> 
+                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
+                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
                                         </div>
                                     </div>
                                 </EditItemTemplate>
