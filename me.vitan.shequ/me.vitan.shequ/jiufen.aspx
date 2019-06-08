@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manager.Master" AutoEventWireup="true" CodeBehind="jumin.aspx.cs" Inherits="me.vitan.shequ.jumin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manager.Master" AutoEventWireup="true" CodeBehind="jiufen.aspx.cs" Inherits="me.vitan.shequ.jiufen" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>居民档案管理</title>
+    <title>纠纷管理</title>
         <style>
         .fl {
             float: left;
@@ -15,7 +15,7 @@
         .div_item {
             border-bottom: 1px dashed #ededed;
             padding: 5px;
-            height: 331px;
+            height: 300px;
             width: 280px;
             background: #bdc3c7;
             border-radius: 7px;
@@ -47,11 +47,11 @@
      <section id="main-content">
         <section class="wrapper">
             <!-- row -->
-            <h3><i class="fa fa-angle-right"></i>居民档案管理</h3>
+            <h3><i class="fa fa-angle-right"></i>纠纷管理</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="content-panel" style="height:auto">
-                        <h4><i class="fa fa-angle-right"></i>居民档案管理</h4>
+                    <div class="content-panel" style="height: 800px">
+                        <h4><i class="fa fa-angle-right"></i>纠纷管理</h4>
                         <hr />
                         <div style="margin-left: 3%">
                             <div style="margin-left: 8%">
@@ -60,14 +60,13 @@
                                     <itemtemplate>
                                         <div class="div_item" runat="server">
                                             <div class="fl">
-                                                <h2><%#Eval("姓名") %></h2>
-                                                <p>性别：<%#Eval("性别")%></p>
-                                                <p>年龄：<%#Eval("年龄")%></p>
-                                                <p>身份证号码：<%#Eval("身份证号码")%></p>
-                                                <p>联系方式: <%#Eval("联系方式")%></p>
-                                                <p>家庭住址: <%#Eval("家庭住址")%></p>
-                                                <p>是否签约: <%#Eval("是否签约")%></p>
-                                                <p>是否贫困: <%#Eval("是否贫困")%></p>
+                                                <br />
+                                                <p>时间：<%#Eval("时间")%></p>
+                                                <p>地点：<%#Eval("地点")%></p>
+                                                <p>纠纷经过：<%#Eval("纠纷经过")%></p>
+                                                <p>调处情况: <%#Eval("调处情况")%></p>
+                                                <p>调解人: <%#Eval("调解人")%></p>
+                                                <p>负责人: <%#Eval("负责人")%></p>
                                                 <br />
                                             <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" ForeColor="Red" CssClass="btn"></asp:Button>
                                             <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn" />
@@ -77,16 +76,15 @@
                                     <EditItemTemplate>
                                     <div class="div_item" runat="server">
                                         <div class="fl">
-                                            <p>姓名：<asp:TextBox ID="TextBox1" Text='<%#Eval("姓名") %>' runat="server"></asp:TextBox></p>
-                                            <p>性别：<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
-                                            <p>身份证号码：<asp:TextBox ID="TextBox3" Text='<%#Eval("身份证号码")%>' runat="server"></asp:TextBox></p>
-                                            <p>联系方式:<asp:TextBox ID="TextBox4" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p>
-                                            <p>家庭住址:<asp:TextBox ID="TextBox5" Text='<%#Eval("家庭住址")%>' runat="server"></asp:TextBox></p>
-                                            <p>是否签约:<asp:TextBox ID="TextBox6" Text='<%#Eval("是否签约")%>' runat="server"></asp:TextBox></p>
-                                            <p>是否贫困:<asp:TextBox ID="TextBox7" Text='<%#Eval("是否贫困")%>' runat="server"></asp:TextBox></p>
-                                            <p>年龄:<asp:TextBox ID="TextBox8" Text='<%#Eval("年龄")%>' runat="server"></asp:TextBox></p>
                                             <br />
-                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
+                                            <p>时间:<asp:TextBox ID="TextBox1" Text='<%#Eval("时间")%>' runat="server"></asp:TextBox></p>
+                                            <p>地点：<asp:TextBox ID="TextBox2" Text='<%#Eval("地点")%>' runat="server"></asp:TextBox></p>
+                                            <p>纠纷经过：<asp:TextBox ID="TextBox3" Text='<%#Eval("纠纷经过")%>' runat="server"></asp:TextBox></p>
+                                            <p>调处情况:<asp:TextBox ID="TextBox4" Text='<%#Eval("调处情况")%>' runat="server"></asp:TextBox></p>
+                                            <p>调解人:<asp:TextBox ID="TextBox5" Text='<%#Eval("调解人")%>' runat="server"></asp:TextBox></p
+                                            <p>负责人:<asp:TextBox ID="TextBox6" Text='<%#Eval("负责人")%>' runat="server"></asp:TextBox></p
+                                            <br />
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
                                         </div>
                                     </div>
@@ -120,58 +118,40 @@
                         <table class="table" style="margin-left: 20%">
                             <tbody>
                                 <tr>
-                                    <td>姓名：</td>
+                                    <td>时间：</td>
                                     <td>
-                                        <asp:TextBox ID="xm" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="sj" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>性别：</td>
+                                    <td>地点：</td>
                                     <td>
-                                        <asp:TextBox ID="xb" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="dd" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>年龄：</td>
+                                    <td>纠纷经过：</td>
                                     <td>
-                                        <asp:TextBox ID="nl" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="jg" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>身份证号码：</td>
+                                    <td>调处情况：</td>
                                     <td>
-                                        <asp:TextBox ID="sf" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="dc" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>联系方式：</td>
+                                    <td>调解人：</td>
                                     <td>
-                                        <asp:TextBox ID="lx" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="tjr" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>家庭住址：</td>
+                                    <td>负责人：</td>
                                     <td>
-                                        <asp:TextBox ID="zz" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>是否签约：</td>
-                                    <td>
-                                        <asp:TextBox ID="qy" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>是否贫困：</td>
-                                    <td>
-                                        <asp:TextBox ID="pk" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>邮箱：</td>
-                                    <td>
-                                        <asp:TextBox ID="yx" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="fzr" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>

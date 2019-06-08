@@ -17,10 +17,11 @@
             border-bottom: 1px dashed #ededed;
             margin-bottom: 10px;
             padding: 5px;
-            height: 160px;
+            height: 250px;
             width: 280px;
             background: #bdc3c7;
             border-radius: 7px;
+            margin:8px 8px
         }
 
             .div_item:hover {
@@ -106,25 +107,43 @@
             <h3><i class="fa fa-angle-right"></i>文体活动</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="content-panel" style="height: 500px">
+                    <div class="content-panel" style="height: auto">
                         <h4><i class="fa fa-angle-right"></i>近期文体活动</h4>
                         <hr />
-                        <div style="margin-left: 15%">
-                            <asp:DataList ID="DataList1" runat="server"
-                                OnItemCommand="DataList1_ItemCommand" RepeatColumns="3" OnItemDataBound="DataList1_ItemDataBound"
-                                RepeatDirection="Horizontal" CssClass="tables">
+                        <div style="margin-left: 10%">
+                            <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatColumns="3" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
+                                RepeatDirection="Horizontal" CssClass="tables" DataKeyNames="序号">
                                 <ItemTemplate>
                                     <div class="div_item" runat="server">
                                         <div class="fl">
+                                            <br />
                                             <h3><%#Eval("主题") %></h3>
                                             <p>活动时间：<%#Eval("活动时间")%></p>
                                             <p>活动地点：<%#Eval("活动地点")%></p>
                                             <p>面向对象：<%#Eval("面向对象")%></p>
                                             <p>活动内容: <%#Eval("活动内容")%></p>
                                             <p>备注: <%#Eval("备注")%></p>
+                                            <br />
+                                            <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" ForeColor="Red" CssClass="btn"></asp:Button>
+                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn" />
                                         </div>
                                     </div>
                                 </ItemTemplate>
+                                <EditItemTemplate>
+                                    <div class="div_item" runat="server">
+                                        <div class="fl">
+                                            <p>主题:<asp:TextBox ID="TextBox1" Text='<%#Eval("主题")%>' runat="server"></asp:TextBox></p>
+                                            <p>活动时间：<asp:TextBox ID="TextBox2" Text='<%#Eval("活动时间")%>' runat="server"></asp:TextBox></p>
+                                            <p>面向对象：<asp:TextBox ID="TextBox3" Text='<%#Eval("面向对象")%>' runat="server"></asp:TextBox></p>
+                                            <p>活动地点:<asp:TextBox ID="TextBox4" Text='<%#Eval("活动地点")%>' runat="server"></asp:TextBox></p>
+                                            <p>活动内容: <asp:TextBox ID="TextBox5" Text='<%#Eval("活动内容")%>' runat="server"></asp:TextBox></p>
+                                            <p>备注:<asp:TextBox ID="TextBox6" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
+                                            <br />
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
+                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
+                                        </div>
+                                    </div>
+                                </EditItemTemplate>
                                 <FooterTemplate>
                                     <br />
                                     共有<asp:Label ID="labCount" runat="server" ForeColor="#FF3300" Width="12px" />页

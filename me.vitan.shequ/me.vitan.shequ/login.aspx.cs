@@ -36,9 +36,9 @@ namespace me.vitan.shequ
             {
                 string uid = ds.Tables[0].Rows[0][0].ToString();
                 string username = ds.Tables[0].Rows[0][1].ToString();
-                mail = ds.Tables[0].Rows[0][2].ToString();
-                password = ds.Tables[0].Rows[0][3].ToString();
-                string role = ds.Tables[0].Rows[0][4].ToString();
+                mail = ds.Tables[0].Rows[0][3].ToString();
+                password = ds.Tables[0].Rows[0][4].ToString();
+                string role = ds.Tables[0].Rows[0][5].ToString();
                 Session["username"] = username;
                 Session["uid"] = uid;
                 Session["email"] = mail;
@@ -46,7 +46,7 @@ namespace me.vitan.shequ
                 Session["role"] = role;
                 if (role == "manager")
                 {
-                    Response.Write("<script>alert('登录成功');window.location.href=\"manager/index.aspx\";</script>");
+                    Response.Write("<script>alert('登录成功');window.location.href=\"canji.aspx\";</script>");
                 }
                 else if (role == "operator")
                 {

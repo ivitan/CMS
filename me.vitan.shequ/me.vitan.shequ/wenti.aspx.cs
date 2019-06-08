@@ -112,13 +112,85 @@ namespace me.vitan.shequ
                 }
             }
         }
+
+        private void dataBindToDataList()
+        {
+            //实例化SqlConnection对象
+            SqlConnection sqlCon = new SqlConnection();
+            //实例化SqlConnection对象连接数据库的字符串
+            sqlCon.ConnectionString = "server = VITAN\\VITAN; uid = sa; pwd = 123456; database = community";
+            //定义SQL语句
+            string SqlStr = "select * from wenti";
+            //实例化SqlDataAdapter对象
+            SqlDataAdapter da = new SqlDataAdapter(SqlStr, sqlCon);
+            //实例化数据集DataSet
+            DataSet ds = new DataSet();
+            da.Fill(ds, "序号");
+
+            ps.DataSource = ds.Tables["序号"].DefaultView;
+
+            this.DataList1.DataSource = ps;
+            this.DataList1.DataKeyField = "序号";
+            this.DataList1.DataBind();
+        }
+        protected void DataList1_EditCommand(object source, DataListCommandEventArgs e)// e表示DataList传递给该函数的信息。
+        {
+            DataList1.EditItemIndex = e.Item.ItemIndex;//e.Item表示DataList中发生事件的那一项
+            dataBindToDataList();
+
+        }
+
+        protected void DataList1_CancelCommand(object source, DataListCommandEventArgs e)// e表示DataList传递给该函数的信息。
+        {
+            DataList1.EditItemIndex = -1;  //当EditItemIndex属性值为-1时，表示不显示EditItemTemplate模板
+            dataBindToDataList();
+        }
+
+        protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
+        {
+            SqlServerDataBase obj = new SqlServerDataBase();
+            string Id = DataList1.DataKeys[e.Item.ItemIndex].ToString();
+            string zt = ((TextBox)e.Item.FindControl("TextBox1")).Text;
+            string sj = ((TextBox)e.Item.FindControl("TextBox2")).Text;
+            string dx = ((TextBox)e.Item.FindControl("TextBox3")).Text;
+            string dd = ((TextBox)e.Item.FindControl("TextBox4")).Text;
+            string nr = ((TextBox)e.Item.FindControl("TextBox5")).Text;
+            string bz = ((TextBox)e.Item.FindControl("TextBox6")).Text;
+            string sql = "update [wenti] set [主题]='" + zt + "',[活动时间]='" + sj + "',[活动地点]='" + dd + "',[面向对象]='" + dx + "',[活动内容]='" + nr + "' ,[备注]='" + bz + "' where [序号]=" + Id;
+            if (obj.Update(sql, null))
+            {
+                Response.Write("<script>alert('修改成功');window.location.href=\"wenti.aspx\";</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('修改失败');window.location.href=\"wenti.aspx\";</script>");
+            }
+            DataList1.EditItemIndex = -1;
+            dataBindToDataList();
+        }
+        protected void DataList1_DeleteCommand(object source, DataListCommandEventArgs e)
+        {
+            string ID = DataList1.DataKeys[e.Item.ItemIndex].ToString();
+            SqlServerDataBase obj = new SqlServerDataBase();
+            string sql = "delete from wenti where [序号]='" + ID + "'";
+            if (obj.Update(sql, null))
+            {
+                Response.Write("<script>alert('删除成功');window.location.href=\"wenti.aspx\";</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('删除失败');window.location.href=\"wenti.aspx\";</script>");
+            }
+            DataList1.EditItemIndex = -1;
+            dataBindToDataList();
+        }
+
         protected void Button3_Click(object sender, EventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
             string sql = "insert into [wenti] ([主题],[活动时间],[活动地点],[面向对象],[活动内容],[备注]) values('" + zt.Text + "','" + sj.Text + "','" + dx.Text + "','" + nr.Text + "','" + dd.Text+ "','" + bz.Text + "')";
             if (obj.Insert(sql, null))
             {
-                obj.Update(sql, null);
                 Response.Write("<script>alert('增加成功');window.location.href=\"wenti.aspx\";</script>");
             }
             else

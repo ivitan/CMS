@@ -58,8 +58,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="canji.aspx" />
+    <Content Include="dibao.aspx" />
     <Content Include="healthUP.aspx" />
     <Content Include="img\ivitan.png" />
+    <Content Include="index.aspx" />
+    <Content Include="jiufen.aspx" />
     <Content Include="jumin.aspx" />
     <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -75,6 +79,7 @@
     <Content Include="Handler.ashx" />
     <Content Include="wenti.aspx" />
     <Content Include="xiagang.aspx" />
+    <Content Include="zhian.aspx" />
     <Content Include="zhiyuan.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -123,12 +128,25 @@
     <Content Include="lib\jquery.scrollTo.min.js" />
     <Content Include="lib\jquery\jquery.js" />
     <Content Include="lib\jquery\jquery.min.js" />
-    <Content Include="manager.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Mysqlserver.cs" />
+    <Compile Include="canji.aspx.cs">
+      <DependentUpon>canji.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="canji.aspx.designer.cs">
+      <DependentUpon>canji.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dibao.aspx.cs">
+      <DependentUpon>dibao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dibao.aspx.designer.cs">
+      <DependentUpon>dibao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="health.aspx.cs">
       <DependentUpon>health.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +161,20 @@
     <Compile Include="healthUP.aspx.designer.cs">
       <DependentUpon>healthUP.aspx</DependentUpon>
     </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jiufen.aspx.cs">
+      <DependentUpon>jiufen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jiufen.aspx.designer.cs">
+      <DependentUpon>jiufen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="jumin.aspx.cs">
       <DependentUpon>jumin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -156,13 +188,6 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manager.aspx.cs">
-      <DependentUpon>manager.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manager.aspx.designer.cs">
-      <DependentUpon>manager.aspx</DependentUpon>
     </Compile>
     <Compile Include="manager.Master.cs">
       <DependentUpon>manager.Master</DependentUpon>
@@ -192,6 +217,13 @@
     </Compile>
     <Compile Include="xiagang.aspx.designer.cs">
       <DependentUpon>xiagang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zhian.aspx.cs">
+      <DependentUpon>zhian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zhian.aspx.designer.cs">
+      <DependentUpon>zhian.aspx</DependentUpon>
     </Compile>
     <Compile Include="zhiyuan.aspx.cs">
       <DependentUpon>zhiyuan.aspx</DependentUpon>

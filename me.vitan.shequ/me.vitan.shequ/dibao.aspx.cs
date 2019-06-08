@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace me.vitan.shequ
 {
-    public partial class jumin : System.Web.UI.Page
+    public partial class dibao : System.Web.UI.Page
     {
         protected static PagedDataSource ps = new PagedDataSource();//创建一个分页数据源的对象且一定要声明为静态
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace me.vitan.shequ
             //实例化SqlConnection对象连接数据库的字符串
             sqlCon.ConnectionString = "server = VITAN\\VITAN; uid = sa; pwd = 123456; database = community";
             //定义SQL语句
-            string SqlStr = "select * from jumin";
+            string SqlStr = "select * from dibao";
             //实例化SqlDataAdapter对象
             SqlDataAdapter da = new SqlDataAdapter(SqlStr, sqlCon);
             //实例化数据集DataSet
@@ -117,7 +117,7 @@ namespace me.vitan.shequ
             //实例化SqlConnection对象连接数据库的字符串
             sqlCon.ConnectionString = "server = VITAN\\VITAN; uid = sa; pwd = 123456; database = community";
             //定义SQL语句
-            string SqlStr = "select * from jumin";
+            string SqlStr = "select * from dibao";
             //实例化SqlDataAdapter对象
             SqlDataAdapter da = new SqlDataAdapter(SqlStr, sqlCon);
             //实例化数据集DataSet
@@ -142,27 +142,26 @@ namespace me.vitan.shequ
             DataList1.EditItemIndex = -1;  //当EditItemIndex属性值为-1时，表示不显示EditItemTemplate模板
             dataBindToDataList();
         }
-
         protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
             string Id = DataList1.DataKeys[e.Item.ItemIndex].ToString();
             string xm = ((TextBox)e.Item.FindControl("TextBox1")).Text;
             string xb = ((TextBox)e.Item.FindControl("TextBox2")).Text;
-            string sfz = ((TextBox)e.Item.FindControl("TextBox3")).Text;
-            string lx = ((TextBox)e.Item.FindControl("TextBox4")).Text;
-            string zz = ((TextBox)e.Item.FindControl("TextBox5")).Text;
-            string qy = ((TextBox)e.Item.FindControl("TextBox6")).Text;
-            string pk = ((TextBox)e.Item.FindControl("TextBox7")).Text;
-            string nl = ((TextBox)e.Item.FindControl("TextBox8")).Text;
-            string sql = "update [jumin] set [姓名]='" + xm + "',[性别]='" + xb + "',[身份证号码]='" + sfz + "',[联系方式]='" + lx + "',[家庭住址]='" + zz + "' ,[是否签约]='" + qy + "',[是否贫困]='" + pk + "' ,[年龄]='" + nl+ "' where [序号]=" + Id;
+            string rk = ((TextBox)e.Item.FindControl("TextBox3")).Text;
+            string sb = ((TextBox)e.Item.FindControl("TextBox4")).Text;
+            string sfz = ((TextBox)e.Item.FindControl("TextBox5")).Text;
+            string yy = ((TextBox)e.Item.FindControl("TextBox6")).Text;
+            string lx = ((TextBox)e.Item.FindControl("TextBox7")).Text;
+            string bz = ((TextBox)e.Item.FindControl("TextBox8")).Text;
+            string sql = "update [dibao] set [户主姓名]='" + xm + "',[性别]='" + xb + "',[家庭人口]='" + rk + "',[享受低保人口]='" + sb + "' ,[身份证号码]='" + sfz + "' ,[主要致贫原因]='" + yy + "' ,[联系方式]='" + lx + "' ,[备注]='" + bz + "' where [序号]=" + Id;
             if (obj.Update(sql, null))
             {
-                Response.Write("<script>alert('修改成功');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('修改成功');window.location.href=\"dibao.aspx\";</script>");
             }
             else
             {
-                Response.Write("<script>alert('修改失败');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('修改失败');window.location.href=\"dibao.aspx\";</script>");
             }
             DataList1.EditItemIndex = -1;
             dataBindToDataList();
@@ -171,14 +170,14 @@ namespace me.vitan.shequ
         {
             string ID = DataList1.DataKeys[e.Item.ItemIndex].ToString();
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "delete from jumin where [序号]='" + ID + "'";
+            string sql = "delete from dibao where [序号]='" + ID + "'";
             if (obj.Update(sql, null))
             {
-                Response.Write("<script>alert('删除成功');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('删除成功');window.location.href=\"dibao.aspx\";</script>");
             }
             else
             {
-                Response.Write("<script>alert('删除失败');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('删除失败');window.location.href=\"dibao.aspx\";</script>");
             }
             DataList1.EditItemIndex = -1;
             dataBindToDataList();
@@ -187,7 +186,7 @@ namespace me.vitan.shequ
         protected void Button3_Click(object sender, EventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "insert into [jumin] ([姓名],[性别],[年龄],[身份证号码],[联系方式],[家庭住址],[是否签约],[是否贫困]) values('" + xm.Text + "','" + xb.Text + "','" + nl.Text + "','" + sf.Text + "','" + lx.Text + "','" + zz.Text + "','" + qy.Text + "','" + pk.Text + "')";
+            string sql = "insert into [dibao] ([户主姓名],[性别],[家庭人口],[享受低保人口],[户主生份证号码],[主要致贫原因],[联系方式],[备注]) values('" + xm.Text + "','" + rk.Text + "','" + sbrk.Text + "','" + sfz.Text + "','" + yy.Text + "','" + lx.Text + "','" + bz.Text + "')";
             if (obj.Insert(sql, null))
             {
                 Response.Write("<script>alert('增加成功');window.location.href=\"jumin.aspx\";</script>");

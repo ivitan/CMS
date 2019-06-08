@@ -10,16 +10,28 @@ using System.Web.UI.WebControls;
 
 namespace me.vitan.shequ
 {
-    public partial class jumin : System.Web.UI.Page
+    public partial class canji : System.Web.UI.Page
     {
         protected static PagedDataSource ps = new PagedDataSource();//创建一个分页数据源的对象且一定要声明为静态
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["role"] == null)
             {
-
-                Bind(0);//数据绑定
+                Response.Write("<script>alert(\"请登陆\");window.location.href=\"../login.aspx\";</script>");
             }
+            else if (Session["role"].ToString() != "manager")
+            {
+                Response.Write("<script>alert(\"您不是管理员\");window.location.href=\"../index.aspx\";</script>");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+
+                    Bind(0);//数据绑定
+                }
+            }
+
 
         }
         //进行数据绑定的方法
@@ -30,7 +42,7 @@ namespace me.vitan.shequ
             //实例化SqlConnection对象连接数据库的字符串
             sqlCon.ConnectionString = "server = VITAN\\VITAN; uid = sa; pwd = 123456; database = community";
             //定义SQL语句
-            string SqlStr = "select * from jumin";
+            string SqlStr = "select * from canji";
             //实例化SqlDataAdapter对象
             SqlDataAdapter da = new SqlDataAdapter(SqlStr, sqlCon);
             //实例化数据集DataSet
@@ -117,7 +129,7 @@ namespace me.vitan.shequ
             //实例化SqlConnection对象连接数据库的字符串
             sqlCon.ConnectionString = "server = VITAN\\VITAN; uid = sa; pwd = 123456; database = community";
             //定义SQL语句
-            string SqlStr = "select * from jumin";
+            string SqlStr = "select * from canji";
             //实例化SqlDataAdapter对象
             SqlDataAdapter da = new SqlDataAdapter(SqlStr, sqlCon);
             //实例化数据集DataSet
@@ -142,27 +154,29 @@ namespace me.vitan.shequ
             DataList1.EditItemIndex = -1;  //当EditItemIndex属性值为-1时，表示不显示EditItemTemplate模板
             dataBindToDataList();
         }
-
         protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
             string Id = DataList1.DataKeys[e.Item.ItemIndex].ToString();
             string xm = ((TextBox)e.Item.FindControl("TextBox1")).Text;
-            string xb = ((TextBox)e.Item.FindControl("TextBox2")).Text;
-            string sfz = ((TextBox)e.Item.FindControl("TextBox3")).Text;
-            string lx = ((TextBox)e.Item.FindControl("TextBox4")).Text;
-            string zz = ((TextBox)e.Item.FindControl("TextBox5")).Text;
-            string qy = ((TextBox)e.Item.FindControl("TextBox6")).Text;
-            string pk = ((TextBox)e.Item.FindControl("TextBox7")).Text;
-            string nl = ((TextBox)e.Item.FindControl("TextBox8")).Text;
-            string sql = "update [jumin] set [姓名]='" + xm + "',[性别]='" + xb + "',[身份证号码]='" + sfz + "',[联系方式]='" + lx + "',[家庭住址]='" + zz + "' ,[是否签约]='" + qy + "',[是否贫困]='" + pk + "' ,[年龄]='" + nl+ "' where [序号]=" + Id;
+            string mz = ((TextBox)e.Item.FindControl("TextBox2")).Text;
+            string xb = ((TextBox)e.Item.FindControl("TextBox3")).Text;
+            string hf = ((TextBox)e.Item.FindControl("TextBox4")).Text;
+            string sfz = ((TextBox)e.Item.FindControl("TextBox5")).Text;
+            string cjz = ((TextBox)e.Item.FindControl("TextBox6")).Text;
+            string cjlx = ((TextBox)e.Item.FindControl("TextBox7")).Text;
+            string cjdj = ((TextBox)e.Item.FindControl("TextBox8")).Text;
+            string da = ((TextBox)e.Item.FindControl("TextBox9")).Text;
+            string lx = ((TextBox)e.Item.FindControl("TextBox10")).Text;
+            string bz = ((TextBox)e.Item.FindControl("TextBox11")).Text;
+            string sql = "update [canji] set [姓名]='" + xm + "',[民族]='" + mz + "',[性别]='" + xb + "',[婚否]='" + hf + "' ,[身份证号]='" + sfz + "' ,[残疾证号]='" + cjz + "',[残疾类型]='" + cjlx + "',[残疾等级]='" + cjdj + "' ,[是否建立档案]='" + da + "' ,[联系方式]='" + lx + "' ,[备注]='" + bz + "' where [序号]=" + Id;
             if (obj.Update(sql, null))
             {
-                Response.Write("<script>alert('修改成功');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('修改成功');window.location.href=\"canji.aspx\";</script>");
             }
             else
             {
-                Response.Write("<script>alert('修改失败');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('修改失败');window.location.href=\"canji.aspx\";</script>");
             }
             DataList1.EditItemIndex = -1;
             dataBindToDataList();
@@ -171,14 +185,14 @@ namespace me.vitan.shequ
         {
             string ID = DataList1.DataKeys[e.Item.ItemIndex].ToString();
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "delete from jumin where [序号]='" + ID + "'";
+            string sql = "delete from jiufen where [序号]='" + ID + "'";
             if (obj.Update(sql, null))
             {
-                Response.Write("<script>alert('删除成功');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('删除成功');window.location.href=\"canji.aspx\";</script>");
             }
             else
             {
-                Response.Write("<script>alert('删除失败');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('删除失败');window.location.href=\"canji.aspx\";</script>");
             }
             DataList1.EditItemIndex = -1;
             dataBindToDataList();
@@ -187,14 +201,14 @@ namespace me.vitan.shequ
         protected void Button3_Click(object sender, EventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "insert into [jumin] ([姓名],[性别],[年龄],[身份证号码],[联系方式],[家庭住址],[是否签约],[是否贫困]) values('" + xm.Text + "','" + xb.Text + "','" + nl.Text + "','" + sf.Text + "','" + lx.Text + "','" + zz.Text + "','" + qy.Text + "','" + pk.Text + "')";
+            string sql = "insert into [canji] ([姓名],[民族],[性别],[婚否],[身份证号码],[残疾证号码],[残疾类型],[残疾等级],[是否建立档案],[联系方式],[备注]) values('" + xm.Text + "','" + mz.Text + "','" + xb.Text + "','" + hf.Text + "','" + sfz.Text + "','" + zjz.Text + "','" + lx.Text + "','" + dj.Text + "','" + jd.Text + "','" + lxfs.Text + "','" + bz.Text + "')";
             if (obj.Insert(sql, null))
             {
-                Response.Write("<script>alert('增加成功');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('增加成功');window.location.href=\"canji.aspx\";</script>");
             }
             else
             {
-                Response.Write("<script>alert('增加失败');window.location.href=\"jumin.aspx\";</script>");
+                Response.Write("<script>alert('增加失败');window.location.href=\"canji.aspx\";</script>");
             }
         }
     }

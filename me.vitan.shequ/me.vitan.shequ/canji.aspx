@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manager.Master" AutoEventWireup="true" CodeBehind="xiagang.aspx.cs" Inherits="me.vitan.shequ.xiagang" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manager.Master" AutoEventWireup="true" CodeBehind="canji.aspx.cs" Inherits="me.vitan.shequ.canji" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>下岗职工管理</title>
+    <title>残疾人管理</title>
     <style>
         .fl {
             float: left;
@@ -17,7 +16,7 @@
             border-bottom: 1px dashed #ededed;
             margin-bottom: 10px;
             padding: 5px;
-            height: 450px;
+            height: 420px;
             width: 280px;
             background: #bdc3c7;
             border-radius: 7px;
@@ -49,36 +48,58 @@
     <section id="main-content">
         <section class="wrapper">
             <!-- row -->
-            <h3><i class="fa fa-angle-right"></i>下岗职工管理</h3>
+            <h3><i class="fa fa-angle-right"></i>残疾人管理</h3>
             <div class="row">
                 <div class="col-md-12">
                     <div class="content-panel" style="height: auto">
-                        <h4><i class="fa fa-angle-right"></i>下岗职工管理</h4>
+                        <h4><i class="fa fa-angle-right"></i>残疾人管理</h4>
                         <hr />
                         <div style="margin-left: 10%">
-                            <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatColumns="3"  OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
+                            <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatColumns="3" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
                                 RepeatDirection="Horizontal" CssClass="tables" DataKeyNames="序号">
                                 <ItemTemplate>
                                     <div class="div_item" runat="server">
                                         <div class="fl">
                                             <h2><%#Eval("姓名") %></h2>
                                             <p>性别：<%#Eval("性别")%></p>
-                                            <p>出生年月：<%#Eval("出生年月")%></p>
-                                            <p>籍贯: <%#Eval("籍贯")%></p>
-                                            <p>学历: <%#Eval("学历")%></p>
-                                            <p>保障金： <%#Eval("保障金")%></p>
-                                            <p>培训记录： <%#Eval("培训记录")%></p>
-                                            <p>婚姻状况: <%#Eval("婚姻状况")%></p>
-                                            <p>政治面貌: <%#Eval("政治面貌")%></p>
-                                            <p>健康状况: <%#Eval("健康状况")%></p>
-                                            <p>联系电话: <%#Eval("联系电话")%></p>
-                                            <p>邮箱: <%#Eval("邮箱")%></p>
-                                            <br />
+                                            <p>民族：<%#Eval("民族")%></p>
+                                            <p>性别：<%#Eval("性别")%></p>
+                                            <p>婚姻状况: <%#Eval("婚否")%></p>
+                                            <p>身份证号: <%#Eval("身份证号")%></p>
+                                            <p>残疾等级: <%#Eval("残疾等级")%></p>
+                                            <p>残疾证号: <%#Eval("残疾证号")%></p>
+                                            <p>残疾类型: <%#Eval("残疾类型")%></p>
+                                            <p>残疾等级: <%#Eval("残疾等级")%></p>
+                                            <p>是否建立档案: <%#Eval("是否建立档案")%></p>
+                                            <p>联系方式:<%#Eval("联系方式")%></p>
+                                            <p>备注: <%#Eval("备注")%></p>
+                                              <br />
                                             <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" ForeColor="Red" CssClass="btn"></asp:Button>
-                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn"/>
+                                            <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn" />
                                         </div>
                                     </div>
                                 </ItemTemplate>
+                                <EditItemTemplate>
+                                    <div class="div_item" runat="server">
+                                        <div class="fl">
+                                            <br />
+                                            <p>姓   名:<asp:TextBox ID="TextBox1" Text='<%#Eval("姓名")%>' runat="server"></asp:TextBox></p>
+                                            <p>民   族:<asp:TextBox ID="TextBox2" Text='<%#Eval("民族")%>' runat="server"></asp:TextBox></p>
+                                            <p>性   别:<asp:TextBox ID="TextBox3" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
+                                            <p>婚姻状况:<asp:TextBox ID="TextBox4" Text='<%#Eval("婚否")%>' runat="server"></asp:TextBox></p>
+                                            <p>身份证号:<asp:TextBox ID="TextBox5" Text='<%#Eval("身份证号")%>' runat="server"></asp:TextBox></p
+                                            <p>残疾证号:<asp:TextBox ID="TextBox6" Text='<%#Eval("残疾证号")%>' runat="server"></asp:TextBox></p
+                                            <p>残疾类型:<asp:TextBox ID="TextBox7" Text='<%#Eval("残疾类型")%>' runat="server"></asp:TextBox></p
+                                            <p>残疾等级:<asp:TextBox ID="TextBox8" Text='<%#Eval("残疾等级")%>' runat="server"></asp:TextBox></p
+                                            <p>是否建立档案:<asp:TextBox ID="TextBox9" Text='<%#Eval("是否建立档案")%>' runat="server"></asp:TextBox></p
+                                            <p>联系方式:<asp:TextBox ID="TextBox10" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p
+                                            <p>备注:<asp:TextBox ID="TextBox11" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
+                                            <br />
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
+                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
+                                        </div>
+                                    </div>
+                                </EditItemTemplate>
                                 <FooterTemplate>
                                     <br />
                                     共有<asp:Label ID="labCount" runat="server" ForeColor="#FF3300" Width="12px" />页
@@ -92,26 +113,6 @@
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPage" ErrorMessage="请输入数字（除了数值0）" ValidationExpression="[1-9]+(\d)*"></asp:RegularExpressionValidator>
                                     <br>
                                 </FooterTemplate>
-                                <EditItemTemplate>
-                                    <div class="div_item" runat="server">
-                                        <div class="fl">
-                                            <h2>姓名：<asp:TextBox ID="TextBox1" runat="server" Text='<%#Eval("姓名") %>'></asp:TextBox></h2>
-                                            <p>性别：<asp:TextBox ID="TextBox2" runat="server" Text='<%#Eval("性别")%>'></asp:TextBox></p>
-                                            <p>出生年月：<asp:TextBox ID="TextBox3" runat="server" Text='<%#Eval("出生年月")%>'></asp:TextBox></p>
-                                            <p>籍贯:<asp:TextBox ID="TextBox4" runat="server" Text='<%#Eval("籍贯")%>'></asp:TextBox></p>
-                                            <p>学历:<asp:TextBox ID="TextBox5" runat="server" Text='<%#Eval("学历")%>'></asp:TextBox></p>
-                                            <p>保障金:<asp:TextBox ID="TextBox6" runat="server" Text='<%#Eval("保障金")%>'></asp:TextBox></p>
-                                            <p>培训记录:<asp:TextBox ID="TextBox7" runat="server" Text='<%#Eval("培训记录")%>'></asp:TextBox></p>
-                                            <p>婚姻状况:<asp:TextBox ID="TextBox8" runat="server" Text='<%#Eval("婚姻状况")%>'></asp:TextBox></p>
-                                            <p>政治面貌:<asp:TextBox ID="TextBox9" runat="server" Text='<%#Eval("政治面貌")%>'></asp:TextBox></p>
-                                            <p>健康状况:<asp:TextBox ID="TextBox10" runat="server" Text='<%#Eval("健康状况")%>'></asp:TextBox></p>
-                                            <p>联系电话:<asp:TextBox ID="TextBox11" runat="server" Text='<%#Eval("联系电话")%>'></asp:TextBox></p>
-                                            <p>邮箱:<asp:TextBox ID="TextBox12" runat="server" Text='<%#Eval("邮箱")%>'></asp:TextBox></p>
-                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" /></asp:Button>
-                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" /></asp:Button> 
-                                        </div>
-                                    </div>
-                                </EditItemTemplate>
                             </asp:DataList>
                         </div>
                     </div>
@@ -139,52 +140,58 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>出生年月：</td>
+                                    <td>民族：</td>
                                     <td>
-                                        <asp:TextBox ID="cs" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="mz" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>籍贯：</td>
+                                    <td>婚否：</td>
                                     <td>
-                                        <asp:TextBox ID="jg" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="hf" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>学历：</td>
+                                    <td>身份证号：</td>
                                     <td>
-                                        <asp:TextBox ID="xl" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="sfz" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>婚姻状况：</td>
+                                    <td>残疾证号：</td>
                                     <td>
-                                        <asp:TextBox ID="hy" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="zjz" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>政治面貌：</td>
+                                    <td>残疾类型：</td>
                                     <td>
-                                        <asp:TextBox ID="zz" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="lx" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>健康状况：</td>
+                                    <td>残疾等级：</td>
                                     <td>
-                                        <asp:TextBox ID="jk" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="dj" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>联系电话：</td>
+                                    <td>是否建立档案：</td>
                                     <td>
-                                        <asp:TextBox ID="dh" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="jd" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>邮箱：</td>
+                                    <td>联系方式：</td>
                                     <td>
-                                        <asp:TextBox ID="yx" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="lxfs" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>备注：</td>
+                                    <td>
+                                        <asp:TextBox ID="bz" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>

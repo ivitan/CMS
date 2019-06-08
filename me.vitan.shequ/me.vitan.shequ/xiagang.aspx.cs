@@ -18,20 +18,19 @@ namespace me.vitan.shequ
         {
             if (!IsPostBack)
             {
-
-                Bind(0);//数据绑定
+                dataBindToDataList();
             }
 
         }
-        //进行数据绑定的方法
-        public void Bind(int CurrentPage)
+
+        private void dataBindToDataList()
         {
             //实例化SqlConnection对象
             SqlConnection sqlCon = new SqlConnection();
             //实例化SqlConnection对象连接数据库的字符串
             sqlCon.ConnectionString = "server = VITAN\\VITAN; uid = sa; pwd = 123456; database = community";
             //定义SQL语句
-            string SqlStr = "select * from xiagang";
+            string SqlStr = "select * from xiagang left join peixun on xiagang.[姓名] = peixun.[姓名]";
             //实例化SqlDataAdapter对象
             SqlDataAdapter da = new SqlDataAdapter(SqlStr, sqlCon);
             //实例化数据集DataSet
@@ -39,9 +38,6 @@ namespace me.vitan.shequ
             da.Fill(ds, "序号");
 
             ps.DataSource = ds.Tables["序号"].DefaultView;
-            ps.AllowPaging = true; //是否可以分页
-            ps.PageSize = 6; //显示的数量
-            ps.CurrentPageIndex = CurrentPage; //取得当前页的页码
 
             this.DataList1.DataSource = ps;
             this.DataList1.DataKeyField = "序号";
@@ -50,65 +46,65 @@ namespace me.vitan.shequ
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            switch (e.CommandName)
-            {
-                //以下5个为 捕获用户点击 上一页 下一页等时发生的事件
-                case "first"://第一页
-                    ps.CurrentPageIndex = 0;
-                    Bind(ps.CurrentPageIndex);
-                    break;
-                case "pre"://上一页
-                    ps.CurrentPageIndex = ps.CurrentPageIndex - 1;
-                    Bind(ps.CurrentPageIndex);
-                    break;
-                case "next"://下一页
-                    ps.CurrentPageIndex = ps.CurrentPageIndex + 1;
-                    Bind(ps.CurrentPageIndex);
-                    break;
-                case "last"://最后一页
-                    ps.CurrentPageIndex = ps.PageCount - 1;
-                    Bind(ps.CurrentPageIndex);
-                    break;
-                case "search"://页面跳转页
-                    if (e.Item.ItemType == ListItemType.Footer)
-                    {
-                        int PageCount = int.Parse(ps.PageCount.ToString());
-                        TextBox txtPage = e.Item.FindControl("txtPage") as TextBox;
-                        int MyPageNum = 0;
-                        if (!txtPage.Text.Equals(""))
-                            MyPageNum = Convert.ToInt32(txtPage.Text.ToString());
-                        if (MyPageNum <= 0 || MyPageNum > PageCount)
-                            Response.Write("<script>alert('请输入页数并确定没有超出总页数！')</script>");
-                        else
-                            Bind(MyPageNum - 1);
-                    }
-                    break;
-            }
+            dataBindToDataList();
         }
-        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        
+        protected void DataList1_EditCommand(object source, DataListCommandEventArgs e)// e表示DataList传递给该函数的信息。
         {
-            if (e.Item.ItemType == ListItemType.Footer)
+            DataList1.EditItemIndex = e.Item.ItemIndex;//e.Item表示DataList中发生事件的那一项
+            dataBindToDataList();
+
+        }
+
+        protected void DataList1_CancelCommand(object source, DataListCommandEventArgs e)// e表示DataList传递给该函数的信息。
+        {
+            DataList1.EditItemIndex = -1;  //当EditItemIndex属性值为-1时，表示不显示EditItemTemplate模板
+            dataBindToDataList();
+        }
+
+        protected void DataList1_UpdateCommand(object source, DataListCommandEventArgs e)
+        {
+            SqlServerDataBase obj = new SqlServerDataBase();
+            string Id = DataList1.DataKeys[e.Item.ItemIndex].ToString();
+            string xm = ((TextBox)e.Item.FindControl("TextBox1")).Text;
+            string xb = ((TextBox)e.Item.FindControl("TextBox2")).Text;
+            string cs = ((TextBox)e.Item.FindControl("TextBox3")).Text;
+            string jg = ((TextBox)e.Item.FindControl("TextBox4")).Text;
+            string xl = ((TextBox)e.Item.FindControl("TextBox5")).Text;
+            string bzj = ((TextBox)e.Item.FindControl("TextBox6")).Text;
+            string pxjl = ((TextBox)e.Item.FindControl("TextBox7")).Text;
+            string hy = ((TextBox)e.Item.FindControl("TextBox8")).Text;
+            string zz = ((TextBox)e.Item.FindControl("TextBox9")).Text;
+            string jk = ((TextBox)e.Item.FindControl("TextBox10")).Text;
+            string dh = ((TextBox)e.Item.FindControl("TextBox11")).Text;
+            string yx = ((TextBox)e.Item.FindControl("TextBox12")).Text;
+            string sql = "update [xiagang] set [姓名]='" + xm + "',[性别]='" + xb + "',[出生年月]='" + cs + "',[籍贯]='" + jg + "',[保障金]='" + bzj+ "',[学历]='" + xl + "' ,[婚姻状况]='" + hy + "',[政治面貌]='" + zz + "',[健康状况]='" + jk + "',[联系电话]='" + dh + "',[邮箱]='" + yx + "' where [序号]=" + Id;
+            if (obj.Update(sql, null))
             {
-                //以下六个为得到脚模板中的控件,并创建变量
-                Label CurrentPage = e.Item.FindControl("labNowPage") as Label;
-                Label PageCount = e.Item.FindControl("labCount") as Label;
-                LinkButton FirstPage = e.Item.FindControl("lnkbtnFirst") as LinkButton;
-                LinkButton PrePage = e.Item.FindControl("lnkbtnFront") as LinkButton;
-                LinkButton NextPage = e.Item.FindControl("lnkbtnNext") as LinkButton;
-                LinkButton LastPage = e.Item.FindControl("lnkbtnLast") as LinkButton;
-                CurrentPage.Text = (ps.CurrentPageIndex + 1).ToString();//绑定显示当前页
-                PageCount.Text = ps.PageCount.ToString();//绑定显示总页数
-                if (ps.IsFirstPage)//如果是第一页,首页和上一页不能用
-                {
-                    FirstPage.Enabled = false;
-                    PrePage.Enabled = false;
-                }
-                if (ps.IsLastPage)//如果是最后一页"下一页"和"尾页"按钮不能用
-                {
-                    NextPage.Enabled = false;
-                    LastPage.Enabled = false;
-                }
+                Response.Write("<script>alert('修改成功');window.location.href=\"xiagang.aspx\";</script>");
             }
+            else
+            {
+                Response.Write("<script>alert('修改失败');window.location.href=\"xiagang.aspx\";</script>");
+            }
+            DataList1.EditItemIndex = -1;
+            dataBindToDataList();
+        }
+        protected void DataList1_DeleteCommand(object source, DataListCommandEventArgs e)
+        {
+            string ID = DataList1.DataKeys[e.Item.ItemIndex].ToString();
+            SqlServerDataBase obj = new SqlServerDataBase();
+            string sql = "delete from xiagang where [序号]='" + ID + "'";
+            if (obj.Update(sql, null))
+            {
+                Response.Write("<script>alert('删除成功');window.location.href=\"xiagang.aspx\";</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('删除失败');window.location.href=\"xiagang.aspx\";</script>");
+            }
+            DataList1.EditItemIndex = -1;
+            dataBindToDataList();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -117,7 +113,6 @@ namespace me.vitan.shequ
             string sql = "insert into [xiagang] ([姓名],[性别],[出生年月],[籍贯],[学历],[婚姻状况],[政治面貌],[健康状况],[联系电话],[邮箱]) values('" + xm.Text + "','" + xb.Text + "','" + cs.Text + "','" + jg.Text + "','" + xl.Text + "','" + hy.Text + "','" + zz.Text + "','" + jk.Text + "','" + dh.Text + "','" + yx.Text + "')";
             if (obj.Insert(sql, null))
             {
-                obj.Update(sql, null);
                 Response.Write("<script>alert('增加成功');window.location.href=\"xiagang.aspx\";</script>");
             }
             else

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manager.Master" AutoEventWireup="true" CodeBehind="jumin.aspx.cs" Inherits="me.vitan.shequ.jumin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manager.Master" AutoEventWireup="true" CodeBehind="dibao.aspx.cs" Inherits="me.vitan.shequ.dibao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>居民档案管理</title>
+    <title>低保管理</title>
         <style>
         .fl {
             float: left;
@@ -15,7 +15,7 @@
         .div_item {
             border-bottom: 1px dashed #ededed;
             padding: 5px;
-            height: 331px;
+            height: 350px;
             width: 280px;
             background: #bdc3c7;
             border-radius: 7px;
@@ -47,46 +47,47 @@
      <section id="main-content">
         <section class="wrapper">
             <!-- row -->
-            <h3><i class="fa fa-angle-right"></i>居民档案管理</h3>
+            <h3><i class="fa fa-angle-right"></i>低保管理</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="content-panel" style="height:auto">
-                        <h4><i class="fa fa-angle-right"></i>居民档案管理</h4>
+                    <div class="content-panel" style="height: auto">
+                        <h4><i class="fa fa-angle-right"></i>低保管理</h4>
                         <hr />
                         <div style="margin-left: 3%">
                             <div style="margin-left: 8%">
-                                <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatColumns="3" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
+                               <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatColumns="3" OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
                                 RepeatDirection="Horizontal" CssClass="tables" DataKeyNames="序号">
                                     <itemtemplate>
                                         <div class="div_item" runat="server">
                                             <div class="fl">
-                                                <h2><%#Eval("姓名") %></h2>
+                                                <h2><%#Eval("户主姓名") %></h2>
                                                 <p>性别：<%#Eval("性别")%></p>
-                                                <p>年龄：<%#Eval("年龄")%></p>
-                                                <p>身份证号码：<%#Eval("身份证号码")%></p>
-                                                <p>联系方式: <%#Eval("联系方式")%></p>
-                                                <p>家庭住址: <%#Eval("家庭住址")%></p>
-                                                <p>是否签约: <%#Eval("是否签约")%></p>
-                                                <p>是否贫困: <%#Eval("是否贫困")%></p>
-                                                <br />
+                                                <p>家庭人口：<%#Eval("家庭人口")%></p>
+                                                <p>享受低保人口：<%#Eval("享受低保人口")%></p>
+                                                <p>户主生份证号码: <%#Eval("身份证号码")%></p>
+                                                <p>主要致贫原因: <%#Eval("主要致贫原因")%></p>
+                                                <p>联系方式 <%#Eval("联系方式")%></p>
+                                                <p>备注: <%#Eval("备注")%></p>
+                                                 <br />
                                             <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" ForeColor="Red" CssClass="btn"></asp:Button>
                                             <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn" />
                                             </div>
                                         </div>
                                     </itemtemplate>
-                                    <EditItemTemplate>
+                                   <EditItemTemplate>
                                     <div class="div_item" runat="server">
                                         <div class="fl">
-                                            <p>姓名：<asp:TextBox ID="TextBox1" Text='<%#Eval("姓名") %>' runat="server"></asp:TextBox></p>
-                                            <p>性别：<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
-                                            <p>身份证号码：<asp:TextBox ID="TextBox3" Text='<%#Eval("身份证号码")%>' runat="server"></asp:TextBox></p>
-                                            <p>联系方式:<asp:TextBox ID="TextBox4" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p>
-                                            <p>家庭住址:<asp:TextBox ID="TextBox5" Text='<%#Eval("家庭住址")%>' runat="server"></asp:TextBox></p>
-                                            <p>是否签约:<asp:TextBox ID="TextBox6" Text='<%#Eval("是否签约")%>' runat="server"></asp:TextBox></p>
-                                            <p>是否贫困:<asp:TextBox ID="TextBox7" Text='<%#Eval("是否贫困")%>' runat="server"></asp:TextBox></p>
-                                            <p>年龄:<asp:TextBox ID="TextBox8" Text='<%#Eval("年龄")%>' runat="server"></asp:TextBox></p>
                                             <br />
-                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
+                                            <p>户主姓名:<asp:TextBox ID="TextBox1" Text='<%#Eval("户主姓名")%>' runat="server"></asp:TextBox></p>
+                                            <p>性别：<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
+                                            <p>家庭人口：<asp:TextBox ID="TextBox3" Text='<%#Eval("家庭人口")%>' runat="server"></asp:TextBox></p>
+                                            <p>受保人口：<asp:TextBox ID="TextBox4" Text='<%#Eval("享受低保人口")%>' runat="server"></asp:TextBox></p>
+                                            <p>身份证号码:<asp:TextBox ID="TextBox5" Text='<%#Eval("身份证号码")%>' runat="server"></asp:TextBox></p>
+                                            <p>主要致贫原因:<asp:TextBox ID="TextBox6" Text='<%#Eval("主要致贫原因")%>' runat="server"></asp:TextBox></p
+                                            <p>联系方式:<asp:TextBox ID="TextBox7" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p
+                                            <p>备注:<asp:TextBox ID="TextBox8" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
+                                            <br />
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
                                         </div>
                                     </div>
@@ -120,7 +121,7 @@
                         <table class="table" style="margin-left: 20%">
                             <tbody>
                                 <tr>
-                                    <td>姓名：</td>
+                                    <td>户主姓名：</td>
                                     <td>
                                         <asp:TextBox ID="xm" runat="server"></asp:TextBox>
                                     </td>
@@ -132,22 +133,22 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>年龄：</td>
+                                    <td>年家庭人口：</td>
                                     <td>
-                                        <asp:TextBox ID="nl" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="rk" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>身份证号码：</td>
+                                    <td>享受低保人口：</td>
                                     <td>
-                                        <asp:TextBox ID="sf" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="sbrk" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>联系方式：</td>
+                                    <td>户主生份证号码：</td>
                                     <td>
-                                        <asp:TextBox ID="lx" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="sfz" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -157,21 +158,21 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>是否签约：</td>
+                                    <td>主要致贫原因：</td>
                                     <td>
-                                        <asp:TextBox ID="qy" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="yy" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>是否贫困：</td>
+                                    <td>联系方式：</td>
                                     <td>
-                                        <asp:TextBox ID="pk" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="lx" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>邮箱：</td>
+                                    <td>备注：</td>
                                     <td>
-                                        <asp:TextBox ID="yx" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="bz" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>

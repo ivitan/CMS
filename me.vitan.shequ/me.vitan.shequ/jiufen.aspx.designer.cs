@@ -10,7 +10,7 @@
 namespace me.vitan.shequ {
     
     
-    public partial class zhiyuan {
+    public partial class jiufen {
         
         /// <summary>
         /// DataList1 控件。
@@ -22,31 +22,22 @@ namespace me.vitan.shequ {
         protected global::System.Web.UI.WebControls.DataList DataList1;
         
         /// <summary>
-        /// xm 控件。
+        /// sj 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox xm;
+        protected global::System.Web.UI.WebControls.TextBox sj;
         
         /// <summary>
-        /// xb 控件。
+        /// dd 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox xb;
-        
-        /// <summary>
-        /// cs 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cs;
+        protected global::System.Web.UI.WebControls.TextBox dd;
         
         /// <summary>
         /// jg 控件。
@@ -58,58 +49,31 @@ namespace me.vitan.shequ {
         protected global::System.Web.UI.WebControls.TextBox jg;
         
         /// <summary>
-        /// xl 控件。
+        /// dc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox xl;
+        protected global::System.Web.UI.WebControls.TextBox dc;
         
         /// <summary>
-        /// hy 控件。
+        /// tjr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hy;
+        protected global::System.Web.UI.WebControls.TextBox tjr;
         
         /// <summary>
-        /// zz 控件。
+        /// fzr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zz;
-        
-        /// <summary>
-        /// jk 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jk;
-        
-        /// <summary>
-        /// dh 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dh;
-        
-        /// <summary>
-        /// yx 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox yx;
+        protected global::System.Web.UI.WebControls.TextBox fzr;
         
         /// <summary>
         /// Button3 控件。
