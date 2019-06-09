@@ -11,7 +11,7 @@
             <h3><i class="fa fa-angle-right"></i>查询</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="content-panel" style="height:400px">
+                    <div class="content-panel" style="height: 400px">
                         <h4><i class="fa fa-angle-right"></i>结果</h4>
                         <hr />
                         <div style="margin-left: 40%; margin-bottom: 30px">
@@ -19,26 +19,26 @@
                         </div>
                         <asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemholder" DataSourceID="SqlDataSource1">
                             <LayoutTemplate>
-                    <div id="itemholder" runat="server"></div>
-                </LayoutTemplate>
-                <ItemTemplate>
-                    <div class="item" id="a1" runat="server">
-                        <img alt="" src='<%#Eval("img","images/{0}") %>' />
-                        <div class="itemfl">
-                            <br />
-                            <h3><%#Eval("name") %></h3>
-                            <p>年龄：<%#Eval("age")%></p>
-                            <p>性别：<%#Eval("sex")%></p>
-                            <p>健康状况：<%#Eval("health") %></p>
-                            <p>联系电话：<%#Eval("phone") %></p>
-                            <a href='healthUp.aspx?id=<%#Eval("id") %>&name=<%#Eval("name") %>' style="text-decoration: none; font-size: 14px; color: Red; margin-left: auto">修改信息</a>
-                        </div>
-                        <div class="clr"></div>
-                    </div>
-                </ItemTemplate>
-            </asp:ListView>
+                                <div id="itemholder" runat="server"></div>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <div class="item" id="a1" runat="server">
+                                    <img alt="" src='<%#Eval("img","images/{0}") %>' />
+                                    <div class="itemfl">
+                                        <br />
+                                        <h3><%#Eval("name") %></h3>
+                                        <p>年龄：<%#Eval("age")%></p>
+                                        <p>性别：<%#Eval("sex")%></p>
+                                        <p>健康状况：<%#Eval("health") %></p>
+                                        <p>联系电话：<%#Eval("phone") %></p>
+                                        <a href='healthUp.aspx?id=<%#Eval("id") %>&name=<%#Eval("name") %>' style="text-decoration: none; font-size: 14px; color: Red; margin-left: auto">修改信息</a>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:ListView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT * FROM [health] WHERE (([name] LIKE '%' + @name + '%') OR ([health] LIKE '%' + @health + '%'))">
-                            <SelectParameters>    
+                            <SelectParameters>
                                 <asp:ControlParameter ControlID="TextBox1" Name="name" PropertyName="Text" Type="String" />
                                 <asp:ControlParameter ControlID="TextBox1" Name="health" PropertyName="Text" Type="String" />
                             </SelectParameters>

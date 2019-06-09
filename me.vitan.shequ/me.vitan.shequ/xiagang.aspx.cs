@@ -16,9 +16,21 @@ namespace me.vitan.shequ
         protected static PagedDataSource ps = new PagedDataSource();//创建一个分页数据源的对象且一定要声明为静态
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["role"] == null)
             {
-                dataBindToDataList();
+                Response.Write("<script>alert(\"请登陆\");window.location.href=\"../login.aspx\";</script>");
+            }
+            else if (Session["role"].ToString() != "manager")
+            {
+                Response.Write("<script>alert(\"您不是管理员\");window.location.href=\"../index.aspx\";</script>");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+
+                    dataBindToDataList();//数据绑定
+                }
             }
 
         }

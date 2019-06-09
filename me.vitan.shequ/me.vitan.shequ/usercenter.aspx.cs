@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mysqlserver;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -9,11 +10,10 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Mysqlserver;
 
 namespace me.vitan.shequ
 {
-    public partial class center : System.Web.UI.Page
+    public partial class usercenter : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,12 +29,10 @@ namespace me.vitan.shequ
             {
                 string username2 = ds.Tables[0].Rows[0][1].ToString();
                 string email2 = ds.Tables[0].Rows[0][3].ToString();
-                string role2 = ds.Tables[0].Rows[0][5].ToString();
                 string register_time2 = ds.Tables[0].Rows[0][6].ToString();
                 string img = ds.Tables[0].Rows[0][7].ToString();
                 username.Text = username2;
                 email.Text = email2;
-                role.Text = role2;
                 register_time.Text = register_time2;
                 if (img == null || img == "")
                 {
@@ -81,7 +79,7 @@ namespace me.vitan.shequ
             SqlServerDataBase obj = new SqlServerDataBase();
             if (obj.Update(sql, null))
             {
-                Response.Write("<script>alert('修改昵称成功');window.location.href=\"index.aspx\";</script>");
+                Response.Write("<script>alert('修改昵称成功');window.location.href=\"usercenter.aspx\";</script>");
             }
             else
             {

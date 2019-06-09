@@ -50,7 +50,7 @@
                         var errorMsg = '请输入正确的邮箱地址.';
                         $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
                     } else {
-                        var okMsg = '输入正确.';
+                        var okMsg = '格式输入正确.';
                         $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
                     }
                 }
@@ -121,7 +121,7 @@
                     </div>
 
                     <div class="goLogin-box">
-                        <a href="login.aspx" style="text-decoration: none;" class="btn">登陆</a>
+                        <asp:Button ID="login" runat="server" Text="登陆" CssClass="btn" OnClick="login_Click"/>
                     </div>
                 </form>
             </div>

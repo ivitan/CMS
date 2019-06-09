@@ -46,15 +46,15 @@ namespace me.vitan.shequ
                 Session["role"] = role;
                 if (role == "manager")
                 {
-                    Response.Write("<script>alert('登录成功');window.location.href=\"canji.aspx\";</script>");
+                    Response.Write("<script>alert('登录成功');window.location.href=\"health.aspx\";</script>");
                 }
                 else if (role == "operator")
                 {
-                    Response.Write("<script>alert('登录成功');window.location.href=\"operator/index.aspx\";</script>");
+                    Response.Write("<script>alert('登录成功');window.location.href=\"index.aspx\";</script>");
                 }
                 else if (role == "normal")
                 {
-                    Response.Write("<script>alert('登录成功');window.location.href=\"normal/index.aspx\";</script>");
+                    Response.Write("<script>alert('登录成功');window.location.href=\"index.aspx\";</script>");
                 }
 
             }

@@ -60,6 +60,8 @@
   <ItemGroup>
     <Content Include="canji.aspx" />
     <Content Include="center.aspx" />
+    <Content Include="css\index.css" />
+    <Content Include="css\template.css" />
     <Content Include="dibao.aspx" />
     <Content Include="healthUP.aspx" />
     <Content Include="img\ivitan.png" />
@@ -70,18 +72,24 @@
     <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="lib\carousel.js" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="lib\jquery.isotope.min.js" />
+    <Content Include="lib\jquery.singlePageNav.min.js" />
     <Content Include="login.aspx" />
     <Content Include="manager.Master" />
     <Content Include="Handler.ashx" />
+    <Content Include="news.aspx" />
+    <Content Include="usercenter.aspx" />
     <Content Include="wenti.aspx" />
     <Content Include="xiagang.aspx" />
     <Content Include="zhian.aspx" />
     <Content Include="zhiyuan.aspx" />
+    <Content Include="files\hd.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,6 +212,13 @@
     <Compile Include="manager.Master.designer.cs">
       <DependentUpon>manager.Master</DependentUpon>
     </Compile>
+    <Compile Include="news.aspx.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news.aspx.designer.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -211,6 +226,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usercenter.aspx.cs">
+      <DependentUpon>usercenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercenter.aspx.designer.cs">
+      <DependentUpon>usercenter.aspx</DependentUpon>
     </Compile>
     <Compile Include="wenti.aspx.cs">
       <DependentUpon>wenti.aspx</DependentUpon>

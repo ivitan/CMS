@@ -57,5 +57,10 @@ namespace me.vitan.shequ
                 Response.Write("<script>alert('注册失败，请检查输入是否正确')</script>");
             }
         }
+
+        protected void login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
     }
 }

@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>个人中心</title>
     <script src="lib/jquery/jquery.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="lib/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style-responsive.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section id="main-content">

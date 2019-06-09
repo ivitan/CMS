@@ -140,8 +140,8 @@
                                             <p>活动内容: <asp:TextBox ID="TextBox5" Text='<%#Eval("活动内容")%>' runat="server"></asp:TextBox></p>
                                             <p>备注:<asp:TextBox ID="TextBox6" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
                                             <br />
-                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn" ></asp:Button>
-                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn" ></asp:Button> 
+                                           <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
+                                            <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
                                         </div>
                                     </div>
                                 </EditItemTemplate>
