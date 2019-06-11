@@ -9,6 +9,6 @@
 - Asp.Net
 - Bootstrap
 
-# Shortcuts
+# Screenshot
 [![V6DxDe.md.png](https://s2.ax1x.com/2019/06/10/V6DxDe.md.png)](https://imgchr.com/i/V6DxDe)
 [![V6rF8P.md.png](https://s2.ax1x.com/2019/06/10/V6rF8P.md.png)](https://imgchr.com/i/V6rF8P)
