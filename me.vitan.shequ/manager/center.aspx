@@ -10,7 +10,7 @@
         $(document).ready(function () {
             $("#ContentPlaceHolder1_role").bind("click", function () {
                 alert("暂时不支持修改身份。");
-                $("#ContentPlaceHolder1_role").css("background-color","#7f8c8d");
+                $("#ContentPlaceHolder1_role").css("background-color","rgb(208, 208, 208)");
             });
         });
     </script>

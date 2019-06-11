@@ -11,6 +11,15 @@
     <link href="lib/bootstrap.min.css" rel="stylesheet" />
     <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <script src="lib/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#role").bind("click", function () {
+                alert("暂时不支持修改身份。");
+                $("#role").css("background-color", "rgb(208, 208, 208)");
+            });
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -41,6 +50,19 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="content-panel" style="height: auto">
+                            <h4><i class="fa fa-angle-right"></i>参与的活动</h4>
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" CssClass="tables table-hover table-condensed" ShowHeader="False">
+                                <Columns>
+                                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                                    <asp:BoundField DataField="dh" HeaderText="dh" SortExpression="dh" />
+                                </Columns>
+                            </asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT * FROM [baoming] WHERE ([who] = @who)">
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="who" SessionField="username" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                            <hr />
                             <h4><i class="fa fa-angle-right"></i>修改密码</h4>
                             <hr />
                             <table class="tabls table-condensed table-hover" style="margin-left: 35%">
@@ -77,6 +99,12 @@
                                     <td class="tableleft">邮箱</td>
                                     <td>
                                         <asp:TextBox ID="email" runat="server" ReadOnly="True"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tableleft">身份</td>
+                                    <td>
+                                        <asp:TextBox ID="role" runat="server" ReadOnly="True"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -128,7 +156,6 @@
                         </div>
                     </div>
                 </div>
-
                 <script type="text/javascript">
                     $(document).ready(function () {
                         $(function () {
@@ -153,8 +180,6 @@
             </div>
         </footer>
         <div class="scroll-to-top" data-spy="affix" data-offset-top="200"><a href="#page" class="smooth-scroll"><i class="fa fa-arrow-up"></i></a></div>
-
-        <script src="lib/jquery/jquery.js"></script>
         <link href="lib/bootstrap.min.css" rel="stylesheet" />
     </form>
 </body>

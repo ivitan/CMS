@@ -58,6 +58,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="baoming.aspx" />
+    <Content Include="img\left.png" />
+    <Content Include="img\right.png" />
     <Content Include="lib\search.js" />
     <Content Include="manager\adoconn.asp" />
     <Content Include="manager\canji.aspx" />
@@ -146,6 +149,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Mysqlserver.cs" />
+    <Compile Include="baoming.aspx.cs">
+      <DependentUpon>baoming.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="baoming.aspx.designer.cs">
+      <DependentUpon>baoming.aspx</DependentUpon>
+    </Compile>
     <Compile Include="manager\canji.aspx.cs">
       <DependentUpon>canji.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

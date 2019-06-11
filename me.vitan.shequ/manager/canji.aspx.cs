@@ -201,7 +201,7 @@ namespace me.vitan.shequ
         protected void Button3_Click(object sender, EventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "insert into [canji] ([姓名],[民族],[性别],[婚否],[身份证号码],[残疾证号码],[残疾类型],[残疾等级],[是否建立档案],[联系方式],[备注]) values('" + xm.Text + "','" + mz.Text + "','" + xb.Text + "','" + hf.Text + "','" + sfz.Text + "','" + zjz.Text + "','" + lx.Text + "','" + dj.Text + "','" + jd.Text + "','" + lxfs.Text + "','" + bz.Text + "')";
+            string sql = "insert into [canji] ([姓名],[民族],[性别],[婚否],[身份证号码],[残疾证号码],[残疾类型],[残疾等级],[是否建立档案],[联系方式],[备注]) values('" + xm.Text + "','" + mz.Text + "','" + sex.SelectedValue + "','" + mar.SelectedValue + "','" + sfz.Text + "','" + zjz.Text + "','" + lx.Text + "','" + dj.Text + "','" + jd.Text + "','" + lxfs.Text + "','" + bz.Text + "')";
             if (obj.Insert(sql, null))
             {
                 Response.Write("<script>alert('增加成功');window.location.href=\"/manager/canji.aspx\";</script>");

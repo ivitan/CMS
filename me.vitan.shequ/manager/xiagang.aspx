@@ -136,7 +136,10 @@
                                 <tr>
                                     <td>性别：</td>
                                     <td>
-                                        <asp:TextBox ID="xb" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="sex" runat="server" CssClass="selectpicker">
+                                            <asp:ListItem>男</asp:ListItem>
+                                            <asp:ListItem>女</asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>

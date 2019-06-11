@@ -122,7 +122,7 @@ namespace me.vitan.shequ
         protected void Button3_Click(object sender, EventArgs e)
         {
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "insert into [xiagang] ([姓名],[性别],[出生年月],[籍贯],[学历],[婚姻状况],[政治面貌],[健康状况],[联系电话],[邮箱]) values('" + xm.Text + "','" + xb.Text + "','" + cs.Text + "','" + jg.Text + "','" + xl.Text + "','" + hy.Text + "','" + zz.Text + "','" + jk.Text + "','" + dh.Text + "','" + yx.Text + "')";
+            string sql = "insert into [xiagang] ([姓名],[性别],[出生年月],[籍贯],[学历],[婚姻状况],[政治面貌],[健康状况],[联系电话],[邮箱]) values('" + xm.Text + "','" + sex.SelectedValue + "','" + cs.Text + "','" + jg.Text + "','" + xl.Text + "','" + hy.Text + "','" + zz.Text + "','" + jk.Text + "','" + dh.Text + "','" + yx.Text + "')";
             if (obj.Insert(sql, null))
             {
                 Response.Write("<script>alert('增加成功');window.location.href=\"/manager/xiagang.aspx\";</script>");

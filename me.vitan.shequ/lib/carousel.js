@@ -1,156 +1,276 @@
-/**
- * author Solitary bamboo
- */
+(function($){
 
-(function(window , factory){
-	/*
-	 * carousel  - carousel(carouselWrap, parameter)
-	 * @param {HTMLElement} carouselWrap - carousel module
-	 * @param {Object} parameter
-	 * 		type: leftright / updown / fade 	Default value(type: 'leftright')
-	 * 		autoplay: boolean (true / fasle)
-	 *		time: number  Default value(3000)  -  time interval
-	 * @example carousel( $('.bannerwrap'), {autoplay:3000 , time:1000})
-	 */
-	var carousel = function(carouselWrap, parameter){
-		return new carousel.fn.init(carouselWrap , parameter);
-	}
-	carousel.fn = carousel.prototype = {
-		constructor: carousel,
-		ind: 0,
-		prev: function(parameter, pb_carousel, pb_carousel_ind, len){
-			if(parameter.type == 'fade'){
-				pb_carousel.eq(this.ind).fadeOut(300);
-				if(this.ind == 0) pb_carousel.eq(len - 1).fadeIn(300);
-				else pb_carousel.eq(this.ind).prev().fadeIn(300);
-				this.ind--;
-				if(this.ind < 0) this.ind=len-1;
-				this.carousel_ind(pb_carousel_ind);
-			}else if(parameter.type == 'updown'){
-				pb_carousel.eq(this.ind).animate({'top': "100%"},300);
-				if(this.ind == 0) pb_carousel.eq(len - 1).css('top', '-100%').show().animate({'top':0},300);
-				else pb_carousel.eq(this.ind).prev().css('top', '-100%').show().animate({'top':0},300);
-				this.ind--;
-				if(this.ind < 0) this.ind=len-1;
-				this.carousel_ind(pb_carousel_ind);
-			}else if(parameter.type == 'leftright' || parameter.type == undefined){
-				pb_carousel.eq(this.ind).animate({'left': "100%"},300);
-				if(this.ind == 0) pb_carousel.eq(len - 1).css('left', '-100%').show().animate({'left':0},300);
-				else pb_carousel.eq(this.ind).prev().css('left', '-100%').show().animate({'left':0},300);
-				this.ind--;
-				if(this.ind < 0) this.ind=len-1;
-				this.carousel_ind(pb_carousel_ind);
-			}
-		},
-		next: function(parameter, pb_carousel, pb_carousel_ind, len){
-			if(parameter.type == 'fade'){
-				pb_carousel.eq(this.ind).fadeOut(300);
-				if(this.ind == len-1) pb_carousel.eq(0).fadeIn(300);
-				pb_carousel.eq(this.ind).next().fadeIn(300);
-				this.ind++;
-				if(this.ind > len-1) this.ind = 0;
-				this.carousel_ind(pb_carousel_ind);
-			}else if(parameter.type == 'updown'){
-				pb_carousel.eq(this.ind).animate({'top': "-100%"},300);
-				if(this.ind == len-1) pb_carousel.eq(0).css('top', '100%').show().animate({'top':0},300);
-				pb_carousel.eq(this.ind).next().css('top', '100%').show().animate({'top':0},300);
-				this.ind++;
-				if(this.ind > len-1) this.ind = 0;
-				this.carousel_ind(pb_carousel_ind);
-			}else if(parameter.type == 'leftright' || parameter.type == undefined){
-				pb_carousel.eq(this.ind).animate({'left': "-100%"},300);
-				if(this.ind == len-1) pb_carousel.eq(0).css('left', '100%').show().animate({'left':0},300);
-				pb_carousel.eq(this.ind).next().css('left', '100%').show().animate({'left':0},300);
-				this.ind++;
-				if(this.ind > len-1) this.ind = 0;
-				this.carousel_ind(pb_carousel_ind);
-			}
-		},
-		carousel_ind: function(pb_carousel_ind){
-			pb_carousel_ind.each(function(){
-				$(this).removeClass('pb-this');
-			})
-			pb_carousel_ind.eq(this.ind).addClass('pb-this');
-		},
-		click: function(carouselWrap, parameter){
-			var _this = this,
-				len = carouselWrap.children('.pb-carousel').children().length,
-				pb_carousel = carouselWrap.children('.pb-carousel').children(),
-				pb_carousel_ind = carouselWrap.children('.pb-carousel-ind').children();
-			carouselWrap.children('.pb-arrow-prev').click(function(){
-				_this.prev(parameter, pb_carousel, pb_carousel_ind, len);
-			});
-			carouselWrap.children('.pb-arrow-next').click(function(){
-				_this.next(parameter, pb_carousel, pb_carousel_ind, len);
-			});
-			pb_carousel_ind.click(function(){
-				if($(this).index() != _this.ind){
-					if(parameter.type == 'fade'){
-						pb_carousel.eq(_this.ind).fadeOut(300);
-						_this.ind = $(this).index();
-						pb_carousel.eq(_this.ind).fadeIn(300);
-					}else if(parameter.type == 'updown'){
-						pb_carousel.eq(_this.ind).animate({'top': "-100%"},300);
-						_this.ind = $(this).index();
-						pb_carousel.eq(_this.ind).css('top', '100%').show().animate({'top':0},300);
-					}else if(parameter.type == 'leftright' || parameter.type == undefined){
-						pb_carousel.eq(_this.ind).animate({'left': "-100%"},300);
-						_this.ind = $(this).index();
-						pb_carousel.eq(_this.ind).css('left', '100%').show().animate({'left':0},300);
-					}
-				}
-				_this.carousel_ind(pb_carousel_ind);
-			})
-		},
-		autoPlay: function(carouselWrap, parameter){	
-			var _this = this,
-				time = parameter.time || 3000,
-				len = carouselWrap.children('.pb-carousel').children().length,
-				pb_carousel = carouselWrap.children('.pb-carousel').children(),
-				pb_carousel_ind = carouselWrap.children('.pb-carousel-ind').children(),
-				timer = setInterval(function(){
-					_this.next(parameter, pb_carousel, pb_carousel_ind, len);
-			}, time);
-			carouselWrap.on('mouseover', function(){
-				clearInterval(timer)
-			});
-			carouselWrap.on('mouseout', function(){
-				timer = setInterval(function(){
-					_this.next(parameter, pb_carousel, pb_carousel_ind, len);
-				}, time);
-			});
-		},
-		arrow: function(carouselWrap, parameter){
-			if(parameter.arrowtype == 'move'){
-				carouselWrap.on('mouseenter', function(){
-					$(this).children('.pb-arrow-prev').fadeIn();
-				});
-				carouselWrap.on('mouseleave', function(){
-					$(this).children('.pb-arrow-prev').fadeOut();
-				});
-				carouselWrap.on('mouseenter', function(){
-					$(this).children('.pb-arrow-next').fadeIn();
-				});
-				carouselWrap.on('mouseleave', function(){
-					$(this).children('.pb-arrow-next').fadeOut();
-				});
-			}else if(parameter.arrowtype == 'none'){
-				carouselWrap.children('.pb-arrow-prev').hide();
-				carouselWrap.children('.pb-arrow-next').hide();
-			}
-		},
-		init: function(carouselWrap , parameter){
-			this.carouselWrap = carouselWrap;
-			this.parameter = parameter;
-			if(this.parameter.type == 'updown') this.carouselWrap.attr('type','updown');
-			this.arrow(this.carouselWrap, this.parameter);
-			var autoplay = (typeof this.parameter.autoplay === 'boolean') ? this.parameter.autoplay : true;
-			this.click(this.carouselWrap, this.parameter);
-			if(autoplay) this.autoPlay(this.carouselWrap, this.parameter);
+	//定义Carousel类
+	var Carousel = (function(){
+
+		//定义Carousel的构造函数
+		function Carousel(element,options){
+			this.settings = $.extend(true,$.fn.Carousel.defaults,options||{});
+			this.element = element;
+			this.init();
 		}
-	}
-	carousel.fn.init.prototype = carousel.fn;
-	window.carousel = carousel;
-}(typeof window !== 'undefined' ? window : this ,jQuery));
 
-	
+		//定义Carousel的方法
+		Carousel.prototype = {
+			/*说明：初始化插件*/
+			init:function(){
+				var me = this;
+				me.poster = me.element;
+				me.posterItemMain = me.poster.find("ul.poster-list");
+				me.nextBtn = me.poster.find("div.poster-next-btn"); 
+				me.prevBtn = me.poster.find("div.poster-prev-btn"); 
+				me.posterItems = me.poster.find("li.poster-item");
+
+				if(me.posterItems.size()%2 == 0){
+					me.posterItemMain.append(me.posterItems.ep(0).clone());
+					me.posterItems = me.posterItemMain.children;
+				}
+				
+				me.posterFirstItem = me.posterItems.first();
+				me.posterLastItem = me.posterItems.last();
+				me.rotateFlag =true;
+
+				//设置配置参数值
+				me.setSettingValue();
+				me.setPosterPost();
+
+				me.nextBtn.click(function(){
+					if(me.rotateFlag){
+						me.rotateFlag = false;
+						me.carouseRotate("left");
+					};
+				});
+
+				me.prevBtn.click(function(){
+					if(me.rotateFlag){
+						me.rotateFlag = false;
+						me.carouseRotate("right");
+					};
+				});
+
+				//是否开启自动播放
+				if(me.settings.autoPlay){
+					me.autoPlay();
+					me.poster.hover(function(){
+						window.clearInterval(me.timer);
+					},function(){
+						me.autoPlay();
+					});
+				}
+			},
+
+			//自动播放方法
+			autoPlay:function(){
+				var me = this;
+				me.timer = window.setInterval(function(){
+					me.nextBtn.click();
+				},me.settings.delay);
+			},
+
+			//旋转方法
+			carouseRotate:function(dir){
+				var me = this;
+				var zIndexArr = [];
+				if(dir === "left"){
+					me.posterItems.each(function(){
+						var self = $(this),
+							prev = self.prev().get(0)?self.prev():me.posterLastItem,
+							width = prev.width(),
+							height = prev.height(),
+							zIndex = prev.css("zIndex"),
+							opacity = prev.css("opacity"),
+							left = prev.css("left"),
+							top = prev.css("top");
+							zIndexArr.push(zIndex);
+							self.animate({
+									width:width,
+									height:height,
+									opacity:opacity,
+									left:left,
+									top:top
+							},me.settings.speed,function(){
+								me.rotateFlag = true;
+							});
+					});
+					me.posterItems.each(function(i){
+						$(this).css("zIndex",zIndexArr[i]);
+						if(zIndexArr[i]==Math.floor(me.posterItems.length/2)){
+							$(this).find(".poster-item-title").slideDown("slow");
+						}else{
+							$(this).find(".poster-item-title").hide();
+						}
+					})
+				}else if(dir === "right"){
+					me.posterItems.each(function(){
+						var self = $(this),
+							next = self.next().get(0)?self.next():me.posterFirstItem,
+							width = next.width(),
+							height = next.height(),
+							zIndex = next.css("zIndex"),
+							opacity = next.css("opacity"),
+							left = next.css("left"),
+							top = next.css("top");
+							zIndexArr.push(zIndex);
+							self.animate({
+									width:width,
+									height:height,
+									opacity:opacity,
+									left:left,
+									top:top
+							},me.settings.speed,function(){
+								me.rotateFlag = true;
+							});
+					});
+					me.posterItems.each(function(i){
+						$(this).css("zIndex",zIndexArr[i]);
+						if(zIndexArr[i]==Math.floor(me.posterItems.length/2)){
+							$(this).find(".poster-item-title").slideDown("slow");
+						}else{
+							$(this).find(".poster-item-title").hide();
+						}
+					})
+				}
+			},
+
+			//设置剩余的帧的位置关系
+			setPosterPost:function(){
+				var me = this;
+				var sliceItems = me.posterItems.slice(1),
+					sliceSize  = sliceItems.size()/2,
+					rightSlice = sliceItems.slice(0,sliceSize),
+					level      = Math.floor(me.posterItems.size()/2),
+					leftSlice  = sliceItems.slice(sliceSize);
+
+				//设置右边帧的位置关系和宽度、高度、top...
+				var rw = me.settings.posterWidth,
+					rh = me.settings.posterHeight,
+					//((容器宽-帧宽)/2)/层级 190
+					gap = ((me.settings.width-me.settings.posterWidth)/2)/level;
+
+				var firstLeft = (me.settings.width-me.settings.posterWidth)/2;
+				var fixOffsetLeft = firstLeft + rw;
+
+				//设置右边的位置关系
+				rightSlice.each(function(i){
+					$(this).find(".poster-item-title").hide();
+					level--;
+					rw = rw*me.settings.scale;
+					rh = rh*me.settings.scale;
+					var j=i;
+					$(this).css({
+							zIndex:level,
+							width:rw,
+							height:rh,
+							opacity:1/(++j),
+							left:fixOffsetLeft+(++i)*gap-rw,
+							top:me.setVertucalAlign(rh)
+					});
+
+				});
+
+				//设置左边的位置关系
+				var lw = rightSlice.last().width(),
+					lh = rightSlice.last().height(),
+					oloop = Math.floor(me.posterItems.size()/2);
+
+				leftSlice.each(function(i){
+					$(this).find(".poster-item-title").hide();
+					$(this).css({
+							zIndex:i,
+							width:lw,
+							height:lh,
+							opacity:1/oloop,
+							left:i*gap,
+							top:me.setVertucalAlign(lh)
+					});
+
+					lw = lw/me.settings.scale;
+					lh = lh/me.settings.scale;
+					oloop--;
+				});
+			},
+
+			//设置垂直排列对齐
+			setVertucalAlign:function(height){
+				var me = this;
+				var verticalType = me.settings.verticalAlign,
+					top = 0;
+
+				if(verticalType === "middle"){
+					top = (me.settings.height - height)/2;
+				}else if(verticalType === "top"){
+					top = 0;
+				}else if(verticalType === "bottom"){
+					top = me.settings.height - height;
+				}else{
+					top = (me.settings.height-height)/2;
+				};
+
+				return top;
+			},
+
+			//配置左右按钮和第一帧位置
+			setSettingValue:function(){
+				var me = this;
+				me.poster.css({
+					width:me.settings.width,
+					height:me.settings.height
+				});
+
+				me.posterItemMain.css({
+					width:me.settings.width,
+					height:me.settings.height
+				});
+
+				//计算左右切换按钮的宽度
+				var w = (me.settings.width-me.settings.posterWidth)/2;
+
+				me.nextBtn.css({
+					width:w,
+					height:me.settings.height,
+					zIndex:Math.ceil(me.posterItems.size()/2)
+				});
+				me.prevBtn.css({
+					width:w,
+					height:me.settings.height,
+					zIndex:Math.ceil(me.posterItems.size()/2)
+				});
+				me.posterFirstItem.css({
+					width:me.settings.posterWidth,
+					height:me.settings.posterHeight,
+					top: me.setVertucalAlign(me.settings.posterHeight),
+					left:w,
+					zIndex:Math.floor(me.posterItems.size()/2)
+				});
+			}
+		};
+		return Carousel;
+	})();
+
+	//单例模式,添加Carousel方法
+	$.fn.Carousel = function(options){
+		return this.each(function(){
+			var me = $(this),
+				instance = me.data("Carousel");
+			if(!instance){
+				instance = new Carousel(me,options);
+				me.data("Carousel",instance);
+			}
+		});
+	};
+
+	//默认配置参数
+	$.fn.Carousel.defaults = {
+		"width":1000,		//幻灯片的宽度
+		"height":519,		//幻灯片的高度
+		"posterWidth":436,	//幻灯片第一帧的宽度
+		"posterHeight":519, //幻灯片第一张的高度
+		"scale":0.9,		//记录显示比例关系
+		"speed":300,		//记录幻灯片滚动速度
+		"autoPlay":true,	//是否开启自动播放
+		"delay":2000,		//自动播放间隔
+		"verticalAlign":"middle"	//图片对齐位置
+	}
+
+
+}(jQuery));

@@ -19,7 +19,7 @@ namespace me.vitan.shequ
         {
             if (Session["role"] == null)
             {
-                Response.Write("<script>alert(\"请登陆\");window.location.href=\"/login.aspx\";</script>");
+                Response.Write("<script>alert(\"您还没登录，请登录\");window.location.href=\"/login.aspx\";</script>");
             }
             else if (Session["role"].ToString() != "manager")
             {
@@ -128,13 +128,11 @@ namespace me.vitan.shequ
             string name = TextBox2.Text;
             string age = TextBox3.Text;
             string health = TextBox4.Text;
-            string sex = TextBox5.Text;
             string phone = TextBox6.Text;
             SqlServerDataBase obj = new SqlServerDataBase();
-            string sql = "insert into [health] (name,age,health,sex,phone) values('" + name + "','" + age + "','" + health + "','" + sex + "','" + phone + "')";
+            string sql = "insert into [health] (name,age,health,sex,phone) values('" + name + "','" + age + "','" + health + "','" + sex.SelectedValue + "','" + phone + "')";
             if (obj.Insert(sql, null))
             {
-                obj.Update(sql, null);
                 Response.Write("<script>alert('增加成功');window.location.href=\"/manager/health.aspx\";</script>");
             }
             else

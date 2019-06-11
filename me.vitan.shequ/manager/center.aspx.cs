@@ -81,11 +81,11 @@ namespace me.vitan.shequ
             SqlServerDataBase obj = new SqlServerDataBase();
             if (obj.Update(sql, null))
             {
-                Response.Write("<script>alert('修改昵称成功');window.location.href=\"/manager/center.aspx.aspx\";</script>");
+                Response.Write("<script>alert('修改用户名成功');window.location.href=\"/manager/center.aspx.aspx\";</script>");
             }
             else
             {
-                Response.Write("<script>alert('修改昵称失败')</script>");
+                Response.Write("<script>alert('修改用户名失败')</script>");
             }
         }
 

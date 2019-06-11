@@ -18,7 +18,7 @@
             padding: 5px;
             height: 420px;
             width: 280px;
-            background:  #f3f4f5;
+            background: #f3f4f5;
             border-radius: 7px;
             margin: 8px 8px;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -136,7 +136,10 @@
                                 <tr>
                                     <td>性别：</td>
                                     <td>
-                                        <asp:TextBox ID="xb" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="sex" runat="server" CssClass="selectpicker">
+                                            <asp:ListItem>男</asp:ListItem>
+                                            <asp:ListItem>女</asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -148,7 +151,10 @@
                                 <tr>
                                     <td>婚否：</td>
                                     <td>
-                                        <asp:TextBox ID="hf" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="mar" runat="server" CssClass="selectpicker">
+                                            <asp:ListItem>已婚</asp:ListItem>
+                                            <asp:ListItem>未婚</asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -163,7 +169,7 @@
                                     <td>
                                         <asp:TextBox ID="zjz" runat="server"></asp:TextBox>
                                     </td>
-                                </tr>
+                                    </tr>
                                 <tr>
                                     <td>残疾类型：</td>
                                     <td>

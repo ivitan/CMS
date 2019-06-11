@@ -58,6 +58,66 @@
                 color: #050000;
                 margin: 5px 5px !important;
             }
+
+        ul {
+            list-style: none;
+        }
+
+        .poster-main {
+            position: relative;
+            margin-left: 13%;
+            margin-top: 50px;
+        }
+
+            .poster-main a, .poster-main img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .poster-main img {
+            }
+
+            .poster-main .poster-list {
+                width: 1000px;
+                height: 500px;
+            }
+
+                .poster-main .poster-list .poster-item {
+                    width: 200px;
+                    height: 500px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
+            .poster-main .poster-btn {
+                position: absolute;
+                top: 0;
+                cursor: pointer;
+                filter: opacity(.5) brightness(1);
+            }
+
+                .poster-main .poster-btn:hover {
+                    filter: opacity(1) brightness(2);
+                }
+
+            .poster-main .poster-prev-btn {
+                left: 0;
+                background: url(/img/left.png) no-repeat center center;
+            }
+
+            .poster-main .poster-next-btn {
+                right: 0;
+                background: url(/img/right.png) no-repeat center center;
+            }
+
+        .poster-item-title {
+            font-size: 18px;
+            text-align: center;
+            line-height: 48px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -83,32 +143,37 @@
             </header>
         </section>
         <main id="main" class="site-main">
-            <section class="carousel slide section-slide carousel-inner">
-                <div class="pb-carouselWarp lunbo">
-                    <ul class="pb-carousel">
-                        <li class="pb-this">
-                            <img src="images/1.jpg" alt="" /></li>
-                        <li>
-                            <img src="images/2.jpg" alt="" /></li>
-                        <li>
-                            <img src="images/3.jpg" alt="" /></li>
-                        <li>
-                            <img src="images/4.jpg" alt="" /></li>
-                        <li>
-                            <img src="images/5.jpg" alt="" /></li>
-                    </ul>
-                    <ul class="pb-carousel-ind">
-                        <li class="pb-this"></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <button class="pb-arrow pb-arrow-prev"></button>
-                    <button class="pb-arrow pb-arrow-next" id="aa"></button>
+            <section class="section section-portfolio">
+                <div class="container">
+                    <h2 class="section-title"><span>活动剪影</span></h2>
+                    <div class="poster-main">
+                        <div class="poster-btn poster-prev-btn"></div>
+                        <ul class="poster-list">
+                            <li class="poster-item"><a href="#">
+                                <img src="/images/1.jpg" /></a>
+                                <span class="poster-item-title">活动 1</span>
+                            </li>
+                            <li class="poster-item"><a href="#">
+                                <img src="/images/2.jpg" /></a>
+                                <span class="poster-item-title">活动 2</span>
+                            </li>
+                            <li class="poster-item"><a href="#">
+                                <img src="/images/3.jpg" /></a>
+                                <span class="poster-item-title">活动 3</span>
+                            </li>
+                            <li class="poster-item"><a href="#">
+                                <img src="/images/4.jpg" /></a>
+                                <span class="poster-item-title">活动 4</span>
+                            </li>
+                            <li class="poster-item"><a href="#">
+                                <img src="/images/5.jpg" /></a>
+                                <span class="poster-item-title">活动 5</span>
+                            </li>
+                        </ul>
+                        <div class="poster-btn poster-next-btn"></div>
+                    </div>
                 </div>
             </section>
-
             <section id="features" class="section section-portfolio">
                 <div class="container">
                     <h2 class="section-title"><span>近期活动</span></h2>
@@ -126,6 +191,7 @@
                                             <p>面向对象：<%#Eval("面向对象")%></p>
                                             <p>活动内容: <%#Eval("活动内容")%></p>
                                             <p>备注: <%#Eval("备注")%></p>
+                                            <a href='baoming.aspx?hd=<%#Eval("主题") %>' style="text-decoration: none; font-size: 14px; color: Red; margin-left: auto">立即报名</a>
                                             <br />
                                         </div>
                                     </div>
@@ -176,7 +242,7 @@
                     </p>
                     <div class="entry-thumbnail">
                     </div>
-                    </div>
+                </div>
             </section>
             <section class="section section-portfolio">
                 <div class="container">
@@ -213,20 +279,20 @@
         <link href="lib/bootstrap.min.css" rel="stylesheet" />
         <script src="lib/carousel.js"></script>
         <script type="text/javascript">
-            $(document).ready(function () {
-                carousel(
-                    $('.lunbo'),	//必选， 要轮播模块(id/class/tagname均可)，必须为jQuery元素
-                    {
-                        type: 'leftright',	//可选，默认左右(leftright) - 'leftright' / 'updown' / 'fade' (左右/上下/渐隐渐现)
-                        arrowtype: 'move',	//可选，默认一直显示 - 'move' / 'none'	(鼠标移上显示 / 不显示 )
-                        autoplay: true,	//可选，默认true - true / false (开启轮播/关闭轮播)
-                        time: 3000	//可选，默认3000
-                    }
-                );
+            //$(".poster-main").Carousel("init");
+
+            $(".poster-main").Carousel({
+                "width": 800,
+                "height": 260,
+                "posterWidth": 450,
+                "posterHeight": 252,
+                "scale": 0.85,
+                "speed": 1000,
+                "autoPlay": true,
+                "delay": 1500,
+                "verticalAlign": "middle"
             });
         </script>
     </form>
-
 </body>
-
 </html>
