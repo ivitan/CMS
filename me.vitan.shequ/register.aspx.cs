@@ -40,21 +40,21 @@ namespace me.vitan.shequ
                     sql = "insert into [user] (username,phone,email,password,role) values('" + username + "','" + phone + "','" + email + "','" + BitConverter.ToString(output).Replace("-", "") + "','normal')";
                     if (obj.Insert(sql, null))
                     {
-                        Response.Write("<script>alert('注册成功！')</script>");
+                        Response.Write("<script>alert('注册成功');window.location.href=\"login.aspx\";</script>");
                     }
                     else
                     {
-                        Response.Write("<script>alert('注册失败，请检查输入是否正确')</script>");
+                        Response.Write("<script>alert('注册失败，请检查输入是否正确');window.location.href=\"register.aspx\";</script>");
                     }
                 }
                 else
                 {
-                    Response.Write("<script>alert('注册失败，请检查输入是否正确')</script>");
+                    Response.Write("<script>alert('注册失败，请检查输入是否正确');window.location.href=\"register.aspx\";</script>");
                 }
             }
             else
             {
-                Response.Write("<script>alert('注册失败，请检查输入是否正确')</script>");
+                Response.Write("<script>alert('注册失败，请检查输入是否正确');window.location.href=\"register.aspx\";</script>");
             }
         }
 

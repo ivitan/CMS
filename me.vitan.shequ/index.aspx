@@ -176,6 +176,7 @@
                     </p>
                     <div class="entry-thumbnail">
                     </div>
+                    </div>
             </section>
             <section class="section section-portfolio">
                 <div class="container">
@@ -191,6 +192,8 @@
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT * FROM [zhian]"></asp:SqlDataSource>
                         </div>
+                    </div>
+                </div>
             </section>
         </main>
 

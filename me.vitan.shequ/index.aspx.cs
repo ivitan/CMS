@@ -14,10 +14,6 @@ namespace me.vitan.shequ
         protected static PagedDataSource ps = new PagedDataSource();//创建一个分页数据源的对象且一定要声明为静态
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["role"] == null)
-            {
-                Response.Write("<script>alert(\"请登陆\");window.location.href=\"../login.aspx\";</script>");
-            }
             if (!IsPostBack)
             {
 
@@ -136,18 +132,17 @@ namespace me.vitan.shequ
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-                string fileName = "hd.xlsx";
-                string filePath = Server.MapPath("files/hd.xlsx");
+            string fileName = "hd.xlsx";
+            string filePath = Server.MapPath("files/hd.xlsx");
 
-                Response.Clear();
-                Response.Buffer = true;
+            Response.Clear();
+            Response.Buffer = true;
 
-                Response.AddHeader("Content-Disposition", "attachment;filename=" + fileName);
-                Response.ContentType = "application/unknow";
-                Response.TransmitFile(filePath);
-                Response.End();
-
-            }
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + fileName);
+            Response.ContentType = "application/unknow";
+            Response.TransmitFile(filePath);
+            Response.End();
 
         }
     }
+}

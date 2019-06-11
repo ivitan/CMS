@@ -2,10 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>个人中心</title>
-    <script src="lib/jquery/jquery.js"></script>
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="lib/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style-responsive.css" rel="stylesheet" />
+    <script src="/lib/jquery/jquery.js"></script>
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/lib/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style-responsive.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $("#ContentPlaceHolder1_role").bind("click", function () {
+                alert("暂时不支持修改身份。");
+                $("#ContentPlaceHolder1_role").css("background-color","#7f8c8d");
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section id="main-content">
@@ -95,20 +103,20 @@
                     <div class="content-panel" style="height: auto">
                         <h4><i class="fa fa-angle-right"></i>修改头像</h4>
                         <hr />
-                        <table class="tables table-condensed table-hover" style="margin-left:35%">
+                        <table class="tables table-condensed table-hover" style="margin-left: 35%">
 
                             <tr>
                                 <td class="tableleft">头像</td>
                                 <td>
                                     <asp:Image ID="pic" runat="server" Width="70px" Height="70px" />
-                                    <br/>
+                                    <br />
                                     <asp:FileUpload ID="pic_upload" runat="server" /><asp:Label ID="lbl_pic" runat="server" class="pic_text"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="tableleft"></td>
                                 <td>
-                                    <asp:Button ID="Button3" runat="server" Text="保存" class="btn btn-primary" OnClick="Button3_Click"/>&nbsp;&nbsp;
+                                    <asp:Button ID="Button3" runat="server" Text="保存" class="btn btn-primary" OnClick="Button3_Click" />&nbsp;&nbsp;
                                     <button type="button" class="btn btn-success" name="backid" id="backid">返回</button>
                                 </td>
                             </tr>
@@ -120,16 +128,6 @@
                     </div>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $(function () {
-                        $('#backid').click(function () {
-                            window.location.href = "index.aspx";
-                        });
-
-                    });
-                });
-            </script>
         </section>
     </section>
 </asp:Content>

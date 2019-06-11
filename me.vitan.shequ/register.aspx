@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="save" content="history"/>
+    <meta name="save" content="history" />
     <title>注册</title>
     <link href="css/register.css" rel="stylesheet" type="text/css" />
     <script src="lib/jquery/jquery.js" type="text/javascript"></script>
@@ -24,7 +24,7 @@
                 //验证用户名
                 if ($(this).is('#TBusername')) {
                     if (this.value == "" || this.value.length < 6) {
-                        var errorMsg = '请输入至少6位的用户名.';
+                        var errorMsg = '至少6位的用户名.';
                         $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
                     } else {
                         var okMsg = '用户名格式正确.';
@@ -56,12 +56,12 @@
                 }
 
                 if ($(this).is('#TBrepassword')) {
-                    if (this.value != "" || this.value != $('#TBpassword').value) {
+                    if (this.value != $('#TBpassword').value) {
                         var errorMsg = '两次密码不一致';
                         $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
                     } else {
                         this.remove("$parent");
-                        var okMsg = '输入正确.';
+                        var okMsg = '两次密码一致.';
                         $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
                     }
                 }
@@ -86,7 +86,7 @@
                 <span>用户注册</span>
             </div>
             <div class="main">
-                <form  method="post" runat="server" autocomplete="off">
+                <form method="post" runat="server" autocomplete="off">
                     <div class="username-box">
                         <span class="require">*</span>
                         <label for="username">设置账号</label>
@@ -117,13 +117,17 @@
                         <asp:TextBox ID="TBemail" runat="server" CssClass="input"></asp:TextBox>
                     </div>
                     <div class="submit-box">
-                        <asp:Button ID="send" runat="server" Text="注册" CssClass="btn" OnClick="send_Click"/>
+                        <asp:Button ID="send" runat="server" Text="注册" CssClass="btn" OnClick="send_Click" />
                     </div>
-
                     <div class="goLogin-box">
-                        <asp:Button ID="login" runat="server" Text="登陆" CssClass="btn" OnClick="login_Click"/>
+                        <input type="reset" value="重置"class="btn" id="res" />
                     </div>
                 </form>
+                <script type="text/javascript">
+                    $('#res').click(function () {
+                        $(".formtips").remove();
+                    });
+                </script>
             </div>
         </div>
     </div>

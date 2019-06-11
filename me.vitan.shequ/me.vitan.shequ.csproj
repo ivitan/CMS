@@ -58,6 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lib\search.js" />
+    <Content Include="manager\adoconn.asp" />
     <Content Include="manager\canji.aspx" />
     <Content Include="manager\center.aspx" />
     <Content Include="css\index.css" />
@@ -83,6 +85,8 @@
     <Content Include="login.aspx" />
     <Content Include="manager\manager.Master" />
     <Content Include="Handler.ashx" />
+    <Content Include="manager\search.asp" />
+    <Content Include="manager\search.mdb" />
     <Content Include="news.aspx" />
     <Content Include="usercenter.aspx" />
     <Content Include="manager\wenti.aspx" />

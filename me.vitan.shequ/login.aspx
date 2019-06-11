@@ -53,7 +53,7 @@
                         <asp:TextBox ID="yzm" runat="server" type="text" placeholder="输入验证码"></asp:TextBox></td>
                     <td>
                         <asp:Image ID="Image1" runat="server" AlternateText="验证码图片" ImageUrl="Handler.ashx" Width="110px" Height="38px" onclick="changeCode()" /></td>
-                </tr>
+                </tr>z
                 <tr>
                     <td>
                         <asp:Button ID="btn" runat="server" Text="Login" OnClick="btn_Click" /></td>

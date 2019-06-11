@@ -13,5 +13,11 @@ namespace me.vitan.shequ
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("/index.aspx");
+        }
     }
 }

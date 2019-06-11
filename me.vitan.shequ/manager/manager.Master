@@ -11,24 +11,72 @@
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/style-responsive.css" rel="stylesheet" />
+    <style>
+        .top {
+            display: block;
+            position: fixed;
+            bottom: 50px;
+            width: 150px;
+            height: 174px;
+            cursor: pointer;
+            z-index: 998;
+            background-position: 0 0;
+            text-align: center;
+            background-image: url(/img/top.png);
+            background-repeat: no-repeat;
+            margin-left: 30px;
+        }
+
+            .top:hover {
+                background-image: url(//s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_frame.f7563b8.png);
+                -webkit-animation: rocket steps(1, start) 0.5s infinite;
+                animation: rocket steps(1, start) 0.5s infinite;
+            }
+
+        a {
+            text-decoration: none;
+        }
+
+        .layout {
+            display: inline-block;
+            margin-top:15px;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            height:28px;
+            color:white;
+            background:#4ECDC4;
+        }
+        .layout:hover{
+            background:#4ECDC4;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script type="text/javascript">
-        function layout() {
-        Session.Abandon();
-        Session.Clear();
-        Response.Redirect("~/Default.aspx");
-        }
-    </script>
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" name="search" method="post">
         <section id="container">
             <header class="header black-bg">
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                 </div>
-                <a href="index.aspx" class="logo"><b>社区管理<span>系统</span></b></a>
+                <a href="/index.aspx" class="logo"><b>社区管理<span>系统</span></b></a>
                 <div class="nav notify-row" id="top_menu">
                     <ul class="nav top-menu">
                     </ul>
@@ -39,6 +87,8 @@
                             <a class="logout" href="/login.aspx">登陆</a>
                         </li>
                         <li><a class="logout" href="center.aspx">个人中心</a></li>
+                        <li>
+                            <asp:Button ID="Button1" runat="server" Text="退出登录" OnClick="Button1_Click" CssClass="layout" /></li>
                     </ul>
                 </div>
             </header>
@@ -115,6 +165,7 @@
             </aside>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            <a href="javaScript:;" class="top" style="right: 0px;"></a>
             <footer class="site-footer">
                 <div class="text-center">
                     <p>
@@ -132,6 +183,26 @@
         <script src="/lib/jquery.dcjqaccordion.2.7.js"></script>
         <script src="/lib/jquery.scrollTo.min.js"></script>
         <script src="/lib/common-scripts.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                //返回顶部===>出现与消失
+                //当屏幕滚动，触生 scroll 事件
+                $(window).scroll(function () {
+                    var top1 = $(this).scrollTop();     //获取相对滚动条顶部的偏移
+                    if (top1 > 200) {      //当偏移大于200px时让图标淡入（css设置为隐藏）
+                        $(".top").stop().fadeIn();
+                    } else {
+                        //当偏移小于200px时让图标淡出
+                        $(".top").stop().fadeOut();
+                    }
+                });
+                //去往顶部
+                $(".top").click(function () {
+                    $("body , html").animate({ scrollTop: 0 }, 300);   //300是所用时间
+                });
+
+            });
+        </script>
     </form>
 </body>
 </html>

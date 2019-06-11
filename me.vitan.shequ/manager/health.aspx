@@ -3,7 +3,27 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/css/health.css" rel="stylesheet" type="text/css" />
+    <script src="../lib/search.js"></script>
     <title>健康管理</title>
+    <style>
+        .suggest_link {
+            background-color: #fff;
+            padding: 2px 6px 2px 6px;
+        }
+
+        .suggest_link_over {
+            background: #e8e2fe;
+            padding: 2px 6px 2px 6px;
+        }
+
+        #search_suggest {
+            position: absolute;
+            background-color: #ffffff;
+            text-align: left;
+            border: 1px solid #000000;
+            width: 200px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section id="main-content">
@@ -15,7 +35,9 @@
                         <h4><i class="fa fa-angle-right"></i>结果</h4>
                         <hr />
                         <div style="margin-left: 40%; margin-bottom: 30px">
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="input" Widtd="120px;"></asp:TextBox><asp:Button ID="Button2" runat="server" Text="查询" CssClass="btn btn-primary" />
+                            <br />
+                            <asp:TextBox type="text" size="35" Width="200" autocomplete="off" ID="txtSearch" name="txtSearch" onkeyup='searchSuggest(this);' runat="server" CssClass="input"></asp:TextBox><input type="submit" value="搜 索" onclick="return search1();" class="btn btn-primary" />
+                            <div id="search_suggest" style="display: none"></div>
                         </div>
                         <asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemholder" DataSourceID="SqlDataSource1">
                             <LayoutTemplate>
@@ -39,12 +61,21 @@
                         </asp:ListView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT * FROM [health] WHERE (([name] LIKE '%' + @name + '%') OR ([health] LIKE '%' + @health + '%'))">
                             <SelectParameters>
-                                <asp:ControlParameter ControlID="TextBox1" Name="name" PropertyName="Text" Type="String" />
-                                <asp:ControlParameter ControlID="TextBox1" Name="health" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="txtSearch" Name="name" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="txtSearch" Name="health" PropertyName="Text" Type="String" />
                             </SelectParameters>
                         </asp:SqlDataSource>
                     </div>
                 </div>
+                <script>
+                    function search1() {
+                        if (document.search.txtSearch.value == "") {
+                            alert('请输入你要查询的内容');
+                            document.search.txtSearch.focus();
+                            return false;
+                        }
+                    }
+                </script>
             </div>
             <!-- row -->
             <h3><i class="fa fa-angle-right"></i>添加</h3>

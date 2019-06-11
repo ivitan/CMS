@@ -30,7 +30,7 @@ namespace me.vitan.shequ
             DataSet ds = obj.Select(sql, null);
             if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
             {
-                Response.Write("<script>alert('该用户不存在')</script>");
+                Response.Write("<script>alert('密码不正确或该用户不存在')</script>");
             }
             else
             {
