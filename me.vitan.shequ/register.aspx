@@ -55,17 +55,6 @@
                     }
                 }
 
-                if ($(this).is('#TBrepassword')) {
-                    if (this.value != $('#TBpassword').value) {
-                        var errorMsg = '两次密码不一致';
-                        $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
-                    } else {
-                        this.remove("$parent");
-                        var okMsg = '两次密码一致.';
-                        $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
-                    }
-                }
-
             }).keyup(function () {
                 $(this).triggerHandler("blur");
             }).focus(function () {
@@ -103,6 +92,8 @@
                         <span class="require">*</span>
                         <label for="userRePassword">确认密码</label>
                         <asp:TextBox ID="TBrepassword" runat="server" type="password" CssClass="input"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToCompare="TBpassword"
+                            ControlToValidate="TBrepassword">两次密码不一致</asp:CompareValidator>
                     </div>
 
                     <div class="userPhone-box">
