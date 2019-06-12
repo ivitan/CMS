@@ -48,113 +48,132 @@
                 <!-- row -->
                 <h3><i class="fa fa-angle-right"></i>个人中心</h3>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="content-panel" style="height: auto">
-                            <h4><i class="fa fa-angle-right"></i>参与的活动</h4>
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" CssClass="tables table-hover table-condensed" ShowHeader="False">
-                                <Columns>
-                                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                                    <asp:BoundField DataField="dh" HeaderText="dh" SortExpression="dh" />
-                                </Columns>
-                            </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT * FROM [baoming] WHERE ([who] = @who)">
+                    <section class="section section-portfolio">
+                        <div class="container">
+                            <h4 style="margin-left:-93% !important;"><i class="fa fa-angle-right"></i>参与的活动</h4>
+                            <asp:ListView ID="ListView2" runat="server" ItemPlaceholderID="itemholder" DataSourceID="SqlDataSource">
+                                <LayoutTemplate>
+                                    <div id="itemholder" class="panel panel-primary" runat="server"></div>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="panel panel-primary">
+                                            <header class="panel-heading">
+                                                <h3><%#Eval("dh") %></h3>
+                                            </header>
+                                            <div class="panel-body">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr class="active">
+                                                            <td>报名人：<%#Eval("who")%></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:ListView>
+                            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT * FROM [baoming] WHERE ([who] = @who)">
                                 <SelectParameters>
                                     <asp:SessionParameter Name="who" SessionField="username" Type="String" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
-                            <hr />
-                            <h4><i class="fa fa-angle-right"></i>修改密码</h4>
-                            <hr />
-                            <table class="tabls table-condensed table-hover" style="margin-left: 35%">
-                                <tr>
-                                    <td class="tableleft">旧密码</td>
-                                    <td>
-                                        <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft">新密码</td>
-                                    <td>
-                                        <asp:TextBox ID="newPassword" runat="server" TextMode="Password"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft"></td>
-                                    <td>
-                                        <asp:Button ID="Button1" runat="server" Text="保存" class="btn btn-primary" OnClick="Button1_Click" />&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-success" name="backid" id="backid2">返回</button>
-                                    </td>
-                                </tr>
-                            </table>
-                            <h4><i class="fa fa-angle-right"></i>修改信息</h4>
-                            <hr />
-                            <table class="tables table-condensed table-hover" style="margin-left: 35%">
-                                <tr>
-                                    <td class="tableleft">用户名</td>
-                                    <td>
-                                        <asp:TextBox ID="username" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft">邮箱</td>
-                                    <td>
-                                        <asp:TextBox ID="email" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft">身份</td>
-                                    <td>
-                                        <asp:TextBox ID="role" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft">注册时间</td>
-                                    <td>
-                                        <asp:TextBox ID="register_time" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft">头像</td>
-                                    <td>
-                                        <asp:Image ID="avatarImg" runat="server" Height="70px" Width="70px" />
-                                        <br />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft"></td>
-                                    <td>
-                                        <asp:Button ID="Button2" runat="server" Text="保存" class="btn btn-primary" OnClick="Button2_Click" />
-                                    </td>
-                                </tr>
-                            </table>
-                            <hr />
-
-                            <h4><i class="fa fa-angle-right"></i>修改头像</h4>
-                            <hr />
-                            <table class="tables table-condensed table-hover" style="margin-left: 35%">
-
-                                <tr>
-                                    <td class="tableleft">头像</td>
-                                    <td>
-                                        <asp:Image ID="pic" runat="server" Width="70px" Height="70px" />
-                                        <br />
-                                        <asp:FileUpload ID="pic_upload" runat="server" /><asp:Label ID="lbl_pic" runat="server" class="pic_text"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft"></td>
-                                    <td>
-                                        <asp:Button ID="Button3" runat="server" Text="保存" class="btn btn-primary" OnClick="Button3_Click" />&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-success" name="backid" id="backid">返回</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tableleft"></td>
-                                    <td>备注：上传的图片,大小不能超过4M！</td>
-                                </tr>
-                            </table>
                         </div>
+                    </section>
+                    <hr />
+                    <h4><i class="fa fa-angle-right"></i>修改密码</h4>
+                    <hr />
+                    <table class="tabls table-condensed table-hover" style="margin-left: 35%">
+                        <tr>
+                            <td class="tableleft">旧密码</td>
+                            <td>
+                                <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft">新密码</td>
+                            <td>
+                                <asp:TextBox ID="newPassword" runat="server" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft"></td>
+                            <td>
+                                <asp:Button ID="Button1" runat="server" Text="保存" class="btn btn-primary" OnClick="Button1_Click" />&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-success" name="backid" id="backid2">返回</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <h4><i class="fa fa-angle-right"></i>修改信息</h4>
+                    <hr />
+                    <table class="tables table-condensed table-hover" style="margin-left: 35%">
+                        <tr>
+                            <td class="tableleft">用户名</td>
+                            <td>
+                                <asp:TextBox ID="username" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft">邮箱</td>
+                            <td>
+                                <asp:TextBox ID="email" runat="server" ReadOnly="True"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft">身份</td>
+                            <td>
+                                <asp:TextBox ID="role" runat="server" ReadOnly="True"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft">注册时间</td>
+                            <td>
+                                <asp:TextBox ID="register_time" runat="server" ReadOnly="True"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft">头像</td>
+                            <td>
+                                <asp:Image ID="avatarImg" runat="server" Height="70px" Width="70px" />
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft"></td>
+                            <td>
+                                <asp:Button ID="Button2" runat="server" Text="保存" class="btn btn-primary" OnClick="Button2_Click" />
+                            </td>
+                        </tr>
+                    </table>
+                    <hr />
+
+                    <h4><i class="fa fa-angle-right"></i>修改头像</h4>
+                    <hr />
+                    <table class="tables table-condensed table-hover" style="margin-left: 35%">
+
+                        <tr>
+                            <td class="tableleft">头像</td>
+                            <td>
+                                <asp:Image ID="pic" runat="server" Width="70px" Height="70px" />
+                                <br />
+                                <asp:FileUpload ID="pic_upload" runat="server" /><asp:Label ID="lbl_pic" runat="server" class="pic_text"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft"></td>
+                            <td>
+                                <asp:Button ID="Button3" runat="server" Text="保存" class="btn btn-primary" OnClick="Button3_Click" />&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-success" name="backid" id="backid">返回</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableleft"></td>
+                            <td>备注：上传的图片,大小不能超过4M！</td>
+                        </tr>
+                    </table>
                     </div>
+                </div>
                 </div>
                 <script type="text/javascript">
                     $(document).ready(function () {
