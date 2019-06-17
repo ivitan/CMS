@@ -86,9 +86,16 @@
             </div>
         </footer>
         <div class="scroll-to-top" data-spy="affix" data-offset-top="200"><a href="#page" class="smooth-scroll"><i class="fa fa-arrow-up"></i></a></div>
-
         <script src="lib/jquery/jquery.js"></script>
         <link href="lib/bootstrap.min.css" rel="stylesheet" />
+        <script>
+            $(function () {
+                $('#backid2').click(function () {
+                    window.location.href = "index.aspx";
+                });
+
+            });
+        </script>
     </form>
 </body>
 </html>

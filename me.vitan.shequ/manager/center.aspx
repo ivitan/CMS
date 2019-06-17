@@ -10,7 +10,7 @@
         $(document).ready(function () {
             $("#ContentPlaceHolder1_role").bind("click", function () {
                 alert("暂时不支持修改身份。");
-                $("#ContentPlaceHolder1_role").css("background-color","rgb(208, 208, 208)");
+                $("#ContentPlaceHolder1_role").css("background-color", "rgb(208, 208, 208)");
             });
         });
     </script>
@@ -27,19 +27,19 @@
                         <hr />
                         <table class="tabls table-condensed table-hover" style="margin-left: 35%">
                             <tr>
-                                <td class="tableleft">旧密码</td>
+                                <td>旧密码</td>
                                 <td>
                                     <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="tableleft">新密码</td>
+                                <td>新密码</td>
                                 <td>
                                     <asp:TextBox ID="newPassword" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="tableleft"></td>
+                                <td></td>
                                 <td>
                                     <asp:Button ID="Button1" runat="server" Text="保存" class="btn btn-primary" OnClick="Button1_Click" />&nbsp;&nbsp;
                                     <button type="button" class="btn btn-success" name="backid" id="backid2">返回</button>
@@ -128,6 +128,13 @@
                     </div>
                 </div>
             </div>
+            <script>
+                $(function () {
+                    $('.btn-success').click(function () {
+                        window.location.href = "health.aspx";
+                    });
+                });
+            </script>
         </section>
     </section>
 </asp:Content>

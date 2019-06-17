@@ -62,13 +62,13 @@
                                             <div class="fl">
                                                 <br />
                                                 <h2><%#Eval("户主姓名") %></h2>
-                                                <p>性别：<%#Eval("性别")%></p>
-                                                <p>家庭人口：<%#Eval("家庭人口")%></p>
-                                                <p>享受低保人口：<%#Eval("享受低保人口")%></p>
-                                                <p>户主生份证号码: <%#Eval("身份证号码")%></p>
-                                                <p>主要致贫原因: <%#Eval("主要致贫原因")%></p>
+                                                <p>性别:<%#Eval("性别")%></p>
+                                                <p>家庭人口:<%#Eval("家庭人口")%></p>
+                                                <p>享受低保人口:<%#Eval("享受低保人口")%></p>
+                                                <p>户主生份证号码:<%#Eval("身份证号码")%></p>
+                                                <p>主要致贫原因:<%#Eval("主要致贫原因")%></p>
                                                 <p>联系方式 <%#Eval("联系方式")%></p>
-                                                <p>备注: <%#Eval("备注")%></p>
+                                                <p>备注:<%#Eval("备注")%></p>
                                                  <br />
                                             <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" CssClass="btn btn-success"></asp:Button>
                                             <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn btn-primary" />
@@ -80,9 +80,9 @@
                                         <div class="fl">
                                             <br />
                                             <p>户主姓名:<asp:TextBox ID="TextBox1" Text='<%#Eval("户主姓名")%>' runat="server"></asp:TextBox></p>
-                                            <p>性别：<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
-                                            <p>家庭人口：<asp:TextBox ID="TextBox3" Text='<%#Eval("家庭人口")%>' runat="server"></asp:TextBox></p>
-                                            <p>受保人口：<asp:TextBox ID="TextBox4" Text='<%#Eval("享受低保人口")%>' runat="server"></asp:TextBox></p>
+                                            <p>性别:<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
+                                            <p>家庭人口:<asp:TextBox ID="TextBox3" Text='<%#Eval("家庭人口")%>' runat="server"></asp:TextBox></p>
+                                            <p>受保人口:<asp:TextBox ID="TextBox4" Text='<%#Eval("享受低保人口")%>' runat="server"></asp:TextBox></p>
                                             <p>身份证号码:<asp:TextBox ID="TextBox5" Text='<%#Eval("身份证号码")%>' runat="server"></asp:TextBox></p>
                                             <p>主要致贫原因:<asp:TextBox ID="TextBox6" Text='<%#Eval("主要致贫原因")%>' runat="server"></asp:TextBox></p
                                             <p>联系方式:<asp:TextBox ID="TextBox7" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p

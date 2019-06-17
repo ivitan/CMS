@@ -173,7 +173,6 @@
                                                 </table>
                                             </div>
                                             <footer class="panel-footer"><a href='baoming.aspx?hd=<%#Eval("主题") %>' class="btn btn-block btn-primary">立即报名</a></footer>
-                                            <br />
                                         </div>
                                     </div>
                                 </ItemTemplate>
@@ -199,15 +198,13 @@
                                             <header class="panel-heading">
                                                 <h2><%#Eval("title")%></h2>
                                             </header>
-                                            <div class="panel-body">
                                                 <table class="table">
                                                     <tbody>
                                                         <tr class="active">
-                                                            <td><%#Eval("from")%></td>
+                                                            <td>通知来源：<%#Eval("from")%></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </div>
                                             <footer class="panel-footer">
                                                 <a href="news.aspx?id=<%#Eval("id") %>" class="btn btn-block btn-primary">阅读详情</a>
                                             </footer>
@@ -246,7 +243,6 @@
                                             <header class="panel-heading">
                                                 <h3><%#Eval("地点") %></h3>
                                             </header>
-                                            <div class="panel-body">
                                                 <table class="table">
                                                     <tbody>
                                                         <tr class="active">
@@ -258,7 +254,6 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:ListView>

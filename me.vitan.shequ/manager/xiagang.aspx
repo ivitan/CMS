@@ -56,7 +56,7 @@
                         <h4><i class="fa fa-angle-right"></i>下岗职工管理</h4>
                         <hr />
                         <div style="margin-left: 10%">
-                            <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatColumns="3"  OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
+                            <asp:DataList ID="DataList1" runat="server"  OnItemCommand="DataList1_ItemCommand" RepeatColumns="3"  OnEditCommand="DataList1_EditCommand" OnUpdateCommand="DataList1_UpdateCommand" OnCancelCommand="DataList1_CancelCommand" OnDeleteCommand="DataList1_DeleteCommand"
                                 RepeatDirection="Horizontal" CssClass="tables" DataKeyNames="序号">
                                 <ItemTemplate>
                                     <div class="div_item" runat="server">
@@ -99,15 +99,15 @@
                                             <h2>姓名：<asp:TextBox ID="TextBox1" runat="server" Text='<%#Eval("姓名") %>'></asp:TextBox></h2>
                                             <p>性别：<asp:TextBox ID="TextBox2" runat="server" Text='<%#Eval("性别")%>'></asp:TextBox></p>
                                             <p>出生年月：<asp:TextBox ID="TextBox3" runat="server" Text='<%#Eval("出生年月")%>'></asp:TextBox></p>
-                                            <p>籍贯:<asp:TextBox ID="TextBox4" runat="server" Text='<%#Eval("籍贯")%>'></asp:TextBox></p>
-                                            <p>学历:<asp:TextBox ID="TextBox5" runat="server" Text='<%#Eval("学历")%>'></asp:TextBox></p>
-                                            <p>保障金:<asp:TextBox ID="TextBox6" runat="server" Text='<%#Eval("保障金")%>'></asp:TextBox></p>
-                                            <p>培训记录:<asp:TextBox ID="TextBox7" runat="server" Text='<%#Eval("培训记录")%>'></asp:TextBox></p>
-                                            <p>婚姻状况:<asp:TextBox ID="TextBox8" runat="server" Text='<%#Eval("婚姻状况")%>'></asp:TextBox></p>
-                                            <p>政治面貌:<asp:TextBox ID="TextBox9" runat="server" Text='<%#Eval("政治面貌")%>'></asp:TextBox></p>
-                                            <p>健康状况:<asp:TextBox ID="TextBox10" runat="server" Text='<%#Eval("健康状况")%>'></asp:TextBox></p>
-                                            <p>联系电话:<asp:TextBox ID="TextBox11" runat="server" Text='<%#Eval("联系电话")%>'></asp:TextBox></p>
-                                            <p>邮箱:<asp:TextBox ID="TextBox12" runat="server" Text='<%#Eval("邮箱")%>'></asp:TextBox></p>
+                                            <p>籍贯: <asp:TextBox ID="TextBox4" runat="server" Text='<%#Eval("籍贯")%>'></asp:TextBox></p>
+                                            <p>学历: <asp:TextBox ID="TextBox5" runat="server" Text='<%#Eval("学历")%>'></asp:TextBox></p>
+                                            <p>保障金: <asp:TextBox ID="TextBox6" runat="server" Text='<%#Eval("保障金")%>'></asp:TextBox></p>
+                                            <p>培训记录: <asp:TextBox ID="TextBox7" runat="server" Text='<%#Eval("培训记录")%>'></asp:TextBox></p>
+                                            <p>婚姻状况: <asp:TextBox ID="TextBox8" runat="server" Text='<%#Eval("婚姻状况")%>'></asp:TextBox></p>
+                                            <p>政治面貌: <asp:TextBox ID="TextBox9" runat="server" Text='<%#Eval("政治面貌")%>'></asp:TextBox></p>
+                                            <p>健康状况: <asp:TextBox ID="TextBox10" runat="server" Text='<%#Eval("健康状况")%>'></asp:TextBox></p>
+                                            <p>联系电话: <asp:TextBox ID="TextBox11" runat="server" Text='<%#Eval("联系电话")%>'></asp:TextBox></p>
+                                            <p>邮箱: <asp:TextBox ID="TextBox12" runat="server" Text='<%#Eval("邮箱")%>'></asp:TextBox></p>
                                             <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
                                         </div>

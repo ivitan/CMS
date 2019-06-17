@@ -77,12 +77,12 @@
                                     <div class="div_item" runat="server">
                                         <div class="fl">
                                             <br />
-                                            <p>时间:<asp:TextBox ID="TextBox1" Text='<%#Eval("时间")%>' runat="server"></asp:TextBox></p>
+                                            <p>时间: <asp:TextBox ID="TextBox1" Text='<%#Eval("时间")%>' runat="server"></asp:TextBox></p>
                                             <p>地点：<asp:TextBox ID="TextBox2" Text='<%#Eval("地点")%>' runat="server"></asp:TextBox></p>
                                             <p>纠纷经过：<asp:TextBox ID="TextBox3" Text='<%#Eval("纠纷经过")%>' runat="server"></asp:TextBox></p>
-                                            <p>调处情况:<asp:TextBox ID="TextBox4" Text='<%#Eval("调处情况")%>' runat="server"></asp:TextBox></p>
-                                            <p>调解人:<asp:TextBox ID="TextBox5" Text='<%#Eval("调解人")%>' runat="server"></asp:TextBox></p
-                                            <p>负责人:<asp:TextBox ID="TextBox6" Text='<%#Eval("负责人")%>' runat="server"></asp:TextBox></p
+                                            <p>调处情况: <asp:TextBox ID="TextBox4" Text='<%#Eval("调处情况")%>' runat="server"></asp:TextBox></p>
+                                            <p>调解人: <asp:TextBox ID="TextBox5" Text='<%#Eval("调解人")%>' runat="server"></asp:TextBox></p
+                                            <p>负责人: <asp:TextBox ID="TextBox6" Text='<%#Eval("负责人")%>' runat="server"></asp:TextBox></p
                                             <br />
                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 

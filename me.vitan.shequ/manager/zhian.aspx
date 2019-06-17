@@ -74,7 +74,7 @@
                                     <div class="div_item" runat="server">
                                         <div class="fl">
                                             <br />
-                                            <p>地点:<asp:TextBox ID="TextBox1" Text='<%#Eval("地点")%>' runat="server"></asp:TextBox></p>
+                                            <p>地点: <asp:TextBox ID="TextBox1" Text='<%#Eval("地点")%>' runat="server"></asp:TextBox></p>
                                             <p>负责人：<asp:TextBox ID="TextBox2" Text='<%#Eval("负责人")%>' runat="server"></asp:TextBox></p>
                                             <p>>是否有监控：<asp:TextBox ID="TextBox3" Text='<%#Eval("是否有监控")%>' runat="server"></asp:TextBox></p>
                                             <br />

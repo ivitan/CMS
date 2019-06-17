@@ -133,12 +133,12 @@
                                 <EditItemTemplate>
                                     <div class="div_item" runat="server">
                                         <div class="fl">
-                                            <p>主题:<asp:TextBox ID="TextBox1" Text='<%#Eval("主题")%>' runat="server"></asp:TextBox></p>
-                                            <p>活动时间：<asp:TextBox ID="TextBox2" Text='<%#Eval("活动时间")%>' runat="server"></asp:TextBox></p>
-                                            <p>面向对象：<asp:TextBox ID="TextBox3" Text='<%#Eval("面向对象")%>' runat="server"></asp:TextBox></p>
-                                            <p>活动地点:<asp:TextBox ID="TextBox4" Text='<%#Eval("活动地点")%>' runat="server"></asp:TextBox></p>
+                                            <p>主题: <asp:TextBox ID="TextBox1" Text='<%#Eval("主题")%>' runat="server"></asp:TextBox></p>
+                                            <p>活动时间: <asp:TextBox ID="TextBox2" Text='<%#Eval("活动时间")%>' runat="server"></asp:TextBox></p>
+                                            <p>面向对象: <asp:TextBox ID="TextBox3" Text='<%#Eval("面向对象")%>' runat="server"></asp:TextBox></p>
+                                            <p>活动地点: <asp:TextBox ID="TextBox4" Text='<%#Eval("活动地点")%>' runat="server"></asp:TextBox></p>
                                             <p>活动内容: <asp:TextBox ID="TextBox5" Text='<%#Eval("活动内容")%>' runat="server"></asp:TextBox></p>
-                                            <p>备注:<asp:TextBox ID="TextBox6" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
+                                            <p>备注: <asp:TextBox ID="TextBox6" Text='<%#Eval("备注")%>' runat="server"></asp:TextBox></p
                                             <br />
                                            <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 

@@ -35,8 +35,7 @@
                         <h4><i class="fa fa-angle-right"></i>结果</h4>
                         <hr />
                         <div style="margin-left: 40%; margin-bottom: 30px">
-                            <br />
-                            <asp:TextBox type="text" size="35" Width="200" autocomplete="off" ID="txtSearch" name="txtSearch" onkeyup='searchSuggest(this);' runat="server" CssClass="input"></asp:TextBox><input type="submit" value="搜 索" onclick="return search1();" class="btn btn-primary" />
+                            <asp:TextBox type="text" size="35" Width="200" autocomplete="off" ID="txtSearch" name="txtSearch" onkeyup='searchSuggest(this);' runat="server" CssClass="input"></asp:TextBox>&nbsp<input type="submit" value="搜 索" onclick="return search1();" class="btn btn-primary" />
                             <div id="search_suggest" style="display: none"></div>
                         </div>
                         <asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemholder" DataSourceID="SqlDataSource1">

@@ -61,18 +61,18 @@
                                     <div class="div_item" runat="server">
                                         <div class="fl">
                                             <h2><%#Eval("姓名") %></h2>
-                                            <p>性别：<%#Eval("性别")%></p>
-                                            <p>民族：<%#Eval("民族")%></p>
-                                            <p>性别：<%#Eval("性别")%></p>
-                                            <p>婚姻状况: <%#Eval("婚否")%></p>
-                                            <p>身份证号: <%#Eval("身份证号")%></p>
-                                            <p>残疾等级: <%#Eval("残疾等级")%></p>
-                                            <p>残疾证号: <%#Eval("残疾证号")%></p>
-                                            <p>残疾类型: <%#Eval("残疾类型")%></p>
-                                            <p>残疾等级: <%#Eval("残疾等级")%></p>
-                                            <p>是否建立档案: <%#Eval("是否建立档案")%></p>
+                                            <p>性别:<%#Eval("性别")%></p>
+                                            <p>民族:<%#Eval("民族")%></p>
+                                            <p>性别:<%#Eval("性别")%></p>
+                                            <p>婚姻状况:<%#Eval("婚否")%></p>
+                                            <p>身份证号:<%#Eval("身份证号")%></p>
+                                            <p>残疾等级:<%#Eval("残疾等级")%></p>
+                                            <p>残疾证号:<%#Eval("残疾证号")%></p>
+                                            <p>残疾类型:<%#Eval("残疾类型")%></p>
+                                            <p>残疾等级:<%#Eval("残疾等级")%></p>
+                                            <p>是否建立档案:<%#Eval("是否建立档案")%></p>
                                             <p>联系方式:<%#Eval("联系方式")%></p>
-                                            <p>备注: <%#Eval("备注")%></p>
+                                            <p>备注:<%#Eval("备注")%></p>
                                               <br />
                                             <asp:Button ID="lbtnEdit" runat="server" Text="更新" CommandName="edit" CssClass="btn btn-success"></asp:Button>
                                             <asp:Button ID="btn_delete" runat="server" Text="删除" CommandName="delete" OnClientClick="return confirm('确定删除吗？')" CssClass="btn btn-primary" />

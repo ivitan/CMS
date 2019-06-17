@@ -81,11 +81,11 @@
                                             <p>姓名：<asp:TextBox ID="TextBox1" Text='<%#Eval("姓名") %>' runat="server"></asp:TextBox></p>
                                             <p>性别：<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
                                             <p>身份证号码：<asp:TextBox ID="TextBox3" Text='<%#Eval("身份证号码")%>' runat="server"></asp:TextBox></p>
-                                            <p>联系方式:<asp:TextBox ID="TextBox4" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p>
-                                            <p>家庭住址:<asp:TextBox ID="TextBox5" Text='<%#Eval("家庭住址")%>' runat="server"></asp:TextBox></p>
-                                            <p>是否签约:<asp:TextBox ID="TextBox6" Text='<%#Eval("是否签约")%>' runat="server"></asp:TextBox></p>
-                                            <p>是否贫困:<asp:TextBox ID="TextBox7" Text='<%#Eval("是否贫困")%>' runat="server"></asp:TextBox></p>
-                                            <p>年龄:<asp:TextBox ID="TextBox8" Text='<%#Eval("年龄")%>' runat="server"></asp:TextBox></p>
+                                            <p>联系方式: <asp:TextBox ID="TextBox4" Text='<%#Eval("联系方式")%>' runat="server"></asp:TextBox></p>
+                                            <p>家庭住址: <asp:TextBox ID="TextBox5" Text='<%#Eval("家庭住址")%>' runat="server"></asp:TextBox></p>
+                                            <p>是否签约: <asp:TextBox ID="TextBox6" Text='<%#Eval("是否签约")%>' runat="server"></asp:TextBox></p>
+                                            <p>是否贫困: <asp:TextBox ID="TextBox7" Text='<%#Eval("是否贫困")%>' runat="server"></asp:TextBox></p>
+                                            <p>年龄: <asp:TextBox ID="TextBox8" Text='<%#Eval("年龄")%>' runat="server"></asp:TextBox></p>
                                             <br />
                                             <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 

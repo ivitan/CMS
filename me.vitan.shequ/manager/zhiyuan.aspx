@@ -85,13 +85,13 @@
                                                 <asp:TextBox ID="TextBox1" Text='<%#Eval("姓名") %>' runat="server"></asp:TextBox></h2>
                                             <p>性别：<asp:TextBox ID="TextBox2" Text='<%#Eval("性别")%>' runat="server"></asp:TextBox></p>
                                             <p>出生年月：<asp:TextBox ID="TextBox3" Text='<%#Eval("出生年月")%>' runat="server"></asp:TextBox></p>
-                                            <p>籍贯:<asp:TextBox ID="TextBox4" Text='<%#Eval("籍贯")%>' runat="server"></asp:TextBox></p>
-                                            <p>学历:<asp:TextBox ID="TextBox5" Text='<%#Eval("学历")%>' runat="server"></asp:TextBox></p>
-                                            <p>婚姻状况:<asp:TextBox ID="TextBox6" Text='<%#Eval("婚姻状况")%>' runat="server"></asp:TextBox></p>
-                                            <p>政治面貌:<asp:TextBox ID="TextBox7" Text='<%#Eval("政治面貌")%>' runat="server"></asp:TextBox></p>
-                                            <p>健康状况:<asp:TextBox ID="TextBox8" Text='<%#Eval("健康状况")%>' runat="server"></asp:TextBox></p>
-                                            <p>联系电话:<asp:TextBox ID="TextBox9" Text='<%#Eval("联系电话")%>' runat="server"></asp:TextBox></p>
-                                            <p>邮箱:<asp:TextBox ID="TextBox10" Text='<%#Eval("邮箱")%>' runat="server"></asp:TextBox></p>
+                                            <p>籍贯: <asp:TextBox ID="TextBox4" Text='<%#Eval("籍贯")%>' runat="server"></asp:TextBox></p>
+                                            <p>学历: <asp:TextBox ID="TextBox5" Text='<%#Eval("学历")%>' runat="server"></asp:TextBox></p>
+                                            <p>婚姻状况: <asp:TextBox ID="TextBox6" Text='<%#Eval("婚姻状况")%>' runat="server"></asp:TextBox></p>
+                                            <p>政治面貌: <asp:TextBox ID="TextBox7" Text='<%#Eval("政治面貌")%>' runat="server"></asp:TextBox></p>
+                                            <p>健康状况: <asp:TextBox ID="TextBox8" Text='<%#Eval("健康状况")%>' runat="server"></asp:TextBox></p>
+                                            <p>联系电话: <asp:TextBox ID="TextBox9" Text='<%#Eval("联系电话")%>' runat="server"></asp:TextBox></p>
+                                            <p>邮箱: <asp:TextBox ID="TextBox10" Text='<%#Eval("邮箱")%>' runat="server"></asp:TextBox></p>
                                             <br />
                                             <asp:Button ID="lbtnupdate" runat="server" Text="更新" CommandName="update" CssClass="btn btn-success" ></asp:Button>
                                             <asp:Button ID="lbtnCancel" runat="server" Text="取消" CommandName="cancel" CssClass="btn btn-primary" ></asp:Button> 
