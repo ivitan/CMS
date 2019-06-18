@@ -90,9 +90,11 @@ namespace me.vitan.shequ
             string jk = ((TextBox)e.Item.FindControl("TextBox10")).Text;
             string dh = ((TextBox)e.Item.FindControl("TextBox11")).Text;
             string yx = ((TextBox)e.Item.FindControl("TextBox12")).Text;
+            string sql2 = "update [peixun] set [培训记录]='" + pxjl + "' where [姓名]=" + xm;
             string sql = "update [xiagang] set [姓名]='" + xm + "',[性别]='" + xb + "',[出生年月]='" + cs + "',[籍贯]='" + jg + "',[保障金]='" + bzj+ "',[学历]='" + xl + "' ,[婚姻状况]='" + hy + "',[政治面貌]='" + zz + "',[健康状况]='" + jk + "',[联系电话]='" + dh + "',[邮箱]='" + yx + "' where [序号]=" + Id;
             if (obj.Update(sql, null))
             {
+                obj.Update(sql2, null);
                 Response.Write("<script>alert('修改成功');window.location.href=\"/manager/xiagang.aspx\";</script>");
             }
             else

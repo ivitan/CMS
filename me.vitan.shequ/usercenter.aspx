@@ -50,7 +50,7 @@
                 <div class="row">
                     <section class="section section-portfolio">
                         <div class="container">
-                            <h4 style="margin-left:-93% !important;"><i class="fa fa-angle-right"></i>参与的活动</h4>
+                            <h4 style="margin-left: -93% !important;"><i class="fa fa-angle-right"></i>参与的活动</h4>
                             <asp:ListView ID="ListView2" runat="server" ItemPlaceholderID="itemholder" DataSourceID="SqlDataSource">
                                 <LayoutTemplate>
                                     <div id="itemholder" class="panel panel-primary" runat="server"></div>
@@ -61,15 +61,13 @@
                                             <header class="panel-heading">
                                                 <h3><%#Eval("dh") %></h3>
                                             </header>
-                                            <div class="panel-body">
-                                                <table class="table">
-                                                    <tbody>
-                                                        <tr class="active">
-                                                            <td>报名人：<%#Eval("who")%></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr class="active">
+                                                        <td>报名人：<%#Eval("who")%></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </ItemTemplate>
@@ -172,7 +170,7 @@
                             <td>备注：上传的图片,大小不能超过4M！</td>
                         </tr>
                     </table>
-                    </div>
+                </div>
                 </div>
                 </div>
                 <script type="text/javascript">
