@@ -11,7 +11,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/ivitan/CMS.svg)
 
 
-# CMS
 - Asp.Net
 - Bootstrap
 
